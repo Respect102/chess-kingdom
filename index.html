@@ -1216,6 +1216,16 @@ body.skin-fantasy .home-in{-webkit-backdrop-filter:none!important;backdrop-filte
 .cnode.cur::after{content:"";position:absolute;left:50%;top:0;width:50px;height:50px;margin-left:-25px;border-radius:50%;box-shadow:0 0 0 3px #ffd24a,0 0 12px 4px rgba(255,210,74,.75);pointer-events:none}
 @media (max-width:600px){.cnode.cur::after{width:38px;height:38px;margin-left:-19px}}
 @media (max-width:600px){.app .topline h1{font-size:1.08rem!important;letter-spacing:0;white-space:nowrap}}
+/* dialogs must fit the visible part of a phone screen (browser bars excluded) */
+.newov{overflow-y:auto;overscroll-behavior:contain}
+.newov>*{margin:auto}
+@supports (height:100svh){
+  .chcard{max-height:min(calc(100svh - 24px),760px)}
+  .achcard{max-height:min(calc(100svh - 24px),720px)}
+  .newcard{max-height:calc(100svh - 24px);overflow-y:auto}
+}
+@media (max-width:600px){.newov{padding:10px}.ch-boss .btn.primary{padding:9px 20px}}
+@media (max-width:600px) and (max-height:700px){.ch-ban{height:72px}.chst{padding:5px 10px}.ch-body{gap:8px;padding:10px}.ch-boss .opp.big{width:60px;height:60px}.ch-boss p{font-size:.8rem;margin:0}}
 </style>
 <style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style>
 </head>
