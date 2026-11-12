@@ -1226,6 +1226,24 @@ body.skin-fantasy .home-in{-webkit-backdrop-filter:none!important;backdrop-filte
 }
 @media (max-width:600px){.newov{padding:10px}.ch-boss .btn.primary{padding:9px 20px}}
 @media (max-width:600px) and (max-height:700px){.ch-ban{height:72px}.chst{padding:5px 10px}.ch-body{gap:8px;padding:10px}.ch-boss .opp.big{width:60px;height:60px}.ch-boss p{font-size:.8rem;margin:0}}
+/* home: title row with settings, less empty space on top */
+.home-top{position:relative;width:100%;display:flex;align-items:center;justify-content:center;min-height:52px}
+.home-top h1{padding:0 60px}
+.home-top #hSet{position:absolute;right:0;top:50%;transform:translateY(-50%);width:48px;height:48px;background:var(--panel);border:1.5px solid var(--line)}
+.home-top #hSet svg{width:26px;height:26px}
+.home-top #hSet:active{transform:translateY(-50%) scale(.95)}
+.home{padding-block:max(16px,3vh) 32px}
+@media (max-width:600px){
+  .home{padding-block:8px 20px}
+  body.skin-fantasy .home-in,body.cbg .home-in{padding:10px 10px 18px;border-radius:22px}
+  .home-in{gap:10px}
+  .home-top{min-height:44px;justify-content:flex-start}
+  .home .home-in .home-top h1{font-size:1.5rem;padding:0 52px 0 4px;text-align:left;white-space:nowrap}
+  .home-top #hSet{width:44px;height:44px}
+}
+@media (max-width:360px){.home .home-in .home-top h1{font-size:1.3rem}}
+#setov{z-index:70}
+@supports (height:100svh){.setcard{max-height:calc(100svh - 24px);overflow-y:auto}}
 </style>
 <style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style>
 </head>
@@ -1484,7 +1502,7 @@ body.skin-fantasy .home-in{-webkit-backdrop-filter:none!important;backdrop-filte
 </div></div>
 <div class="home" id="home" hidden>
   <div class="home-in">
-    <h1>Шахматное королевство</h1>
+    <div class="home-top"><h1>Шахматное королевство</h1><button type="button" class="hp-btn" id="hSet" aria-label="Настройки" title="Настройки"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.900 2.900l-.1-.1a1.7 1.7 0 0 0-1.900-.3 1.7 1.7 0 0 0-1 1.500V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.100-1.500 1.700 1.700 0 0 0-1.900.3l-.1.1a2 2 0 1 1-2.900-2.900l.1-.1a1.700 1.700 0 0 0 .3-1.900 1.700 1.700 0 0 0-1.500-1H3a2 2 0 1 1 0-4h.1a1.700 1.700 0 0 0 1.500-1.100 1.700 1.700 0 0 0-.3-1.900l-.1-.1a2 2 0 1 1 2.900-2.900l.1.1a1.700 1.700 0 0 0 1.900.3h.1a1.700 1.700 0 0 0 1-1.500V3a2 2 0 1 1 4 0v.1a1.700 1.700 0 0 0 1 1.500 1.700 1.700 0 0 0 1.900-.3l.1-.1a2 2 0 1 1 2.900 2.900l-.1.1a1.700 1.700 0 0 0-.3 1.900v.1a1.700 1.700 0 0 0 1.500 1H21a2 2 0 1 1 0 4h-.1a1.700 1.700 0 0 0-1.500 1z"/></svg></button></div>
     <div class="hprof" id="hProf"></div>
     <button class="btn primary home-cont" id="homeCont" type="button" hidden><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l13 8-13 8z"/></svg>Продолжить партию <small id="homeContSub" style="opacity:.8;font-weight:700"></small></button>
     <div class="hrow">
@@ -4818,6 +4836,7 @@ function homeMeta(){
     <div class="hq chest${q.bonus?' done':''}"><span class="hq-ic">${CHEST}</span><span class="hq-t"><b>Сундук за все задания</b><small>${q.bonus?'Открыт сегодня':'+60 опыта'}</small></span><span class="hq-n">${q.it.filter(i=>i.done).length}/3</span></div>`;
 }
 $('home').addEventListener('click',e=>{
+  if(e.target.closest('#hSet')){openSettings();return;}
   if(e.target.closest('#hAch')){openAch();return;}
   if(e.target.closest('#hMute')){PREF.mute=!PREF.mute;savePref();volSync();homeMeta();return;}
   if(e.target.closest('[data-daily]')){openDaily();return;}
