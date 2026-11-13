@@ -12,11 +12,11 @@
  "portraits": {
   "tim": {
    "prompt": "A young squire of about sixteen, short messy chestnut-brown hair, green eyes, friendly shy smile, freckles, simple brown leather jerkin over a white linen shirt. Background: sunny green meadow and a stone castle.",
-   "seed": 22
+   "seed": 33
   },
   "iva": {
    "prompt": "A young forest archer woman, long red hair in a braid, green hood and cloak, attentive sharp green eyes, a longbow over her shoulder and arrow fletchings visible. Background: sunlit green forest with tall trees.",
-   "seed": 22
+   "seed": 33
   },
   "brodd": {
    "prompt": "A stout dwarf blacksmith, huge bushy ginger beard braided with gold rings, steel horned helmet, thick frowning eyebrows, broad nose, leather apron over chainmail. Background: rocky mountains with the orange glow of a forge.",
@@ -24,7 +24,7 @@
   },
   "kruk": {
    "prompt": "A bandit chieftain in his forties, red bandana on his head, black leather eyepatch over the left eye, scar across the cheek, stubble and a thick black moustache, gold hoop earring, dark hooded cloak, confident smirk. Background: a village at sunset with orange sky.",
-   "seed": 33
+   "seed": 11
   },
   "garet": {
    "prompt": "A middle-aged knight, open steel helmet with a red plume, dark moustache, calm blue eyes, polished plate armor pauldrons, noble and steady expression. Background: a fortress wall with blue banners, clear daylight.",
@@ -36,7 +36,7 @@
   },
   "mirra": {
    "prompt": "A mysterious sorceress, long dark violet hair, golden circlet with a turquoise gem on her forehead, glowing violet eyes, deep purple robe, faint enigmatic half-smile, a small magic light near her hand. Background: night swamp with stars and fireflies.",
-   "seed": 22
+   "seed": 33
   },
   "orvin": {
    "prompt": "An ancient archmage, very long white beard, tall pointed blue hat decorated with golden stars, wise pale blue eyes, bushy white eyebrows, deep blue robe. Background: a snowy tower in winter, falling snow.",
@@ -44,11 +44,11 @@
   },
   "mordred": {
    "prompt": "A black knight in a closed dark steel helmet with curved horns, glowing red light inside the visor slits, black plate armor, tattered crimson cape, menacing and silent. Background: massive dark stone gates under a blood-red sky.",
-   "seed": 22
+   "seed": 33
   },
   "ignis": {
-   "prompt": "The head and neck of an ancient red dragon, crimson scales, glowing golden eyes with vertical slit pupils, long curved ivory horns, smoke curling from the nostrils, menacing and majestic. Background: dark cave lit by lava and piles of gold.",
-   "seed": 22
+   "prompt": "The head and neck of an ancient red dragon, crimson scales, glowing golden eyes with vertical slit pupils, long curved ivory horns, smoke curling from the nostrils, menacing and majestic. The dragon has no whiskers, no barbels, no tendrils, no moustache, a clean western-style dragon snout. Background: dark cave lit by lava and piles of gold.",
+   "seed": 11
   },
   "elinor": {
    "prompt": "A dignified worried queen of about forty-five, short dark hair with a streak of silver at the temple, tall silver crown set with deep blue sapphires, royal navy-blue gown with silver stars embroidered on the shoulders, silver chain with a moon pendant, sad wise grey eyes. Background: a night-time castle balcony with blue banners and moonlight.",
