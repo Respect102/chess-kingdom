@@ -63,32 +63,32 @@
  "pieces": {
   "pawn": {
    "file": "assets/pieces/pawn.png",
-   "prompt": "living ivory chess pawn character with a cute face (rank avatar)",
+   "description": "living ivory chess pawn character with a cute face (rank avatar)",
    "seed": 11
   },
   "knight": {
    "file": "assets/pieces/knight.png",
-   "prompt": "living ivory chess knight character with a cute face (rank avatar)",
+   "description": "living ivory chess knight character with a cute face (rank avatar)",
    "seed": 11
   },
   "bishop": {
    "file": "assets/pieces/bishop.png",
-   "prompt": "living ivory chess bishop character with a cute face (rank avatar)",
+   "description": "living ivory chess bishop character with a cute face (rank avatar)",
    "seed": 11
   },
   "rook": {
    "file": "assets/pieces/rook.png",
-   "prompt": "living ivory chess rook character with a cute face (rank avatar)",
+   "description": "living ivory chess rook character with a cute face (rank avatar)",
    "seed": 11
   },
   "queen": {
    "file": "assets/pieces/queen.png",
-   "prompt": "living ivory chess queen character with a cute face (rank avatar)",
+   "description": "living ivory chess queen character with a cute face (rank avatar)",
    "seed": 11
   },
   "king": {
    "file": "assets/pieces/king.png",
-   "prompt": "living ivory chess king character with a cute face (rank avatar)",
+   "description": "living ivory chess king character with a cute face (rank avatar)",
    "seed": 22
   }
  },
