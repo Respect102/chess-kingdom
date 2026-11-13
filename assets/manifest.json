@@ -92,5 +92,43 @@
    "seed": 22
   }
  },
- "frames": "Portrait frames are vector SVG drawn in code (k_frames.js), not generated images."
+ "frames": "Portrait frames are vector SVG drawn in code (k_frames.js), not generated images.",
+ "scenes": {
+  "prompt_suffix": "Wide panoramic fantasy landscape for a game background, hand-painted 3D game splash art style ... (see jobs2.json)",
+  "seeds": {
+   "meadow": 11,
+   "forest": 11,
+   "lake": 11,
+   "sunset": 22,
+   "winter": 11,
+   "night": 22,
+   "harbor": 22,
+   "dragon": 11
+  },
+  "size": "1344x768"
+ },
+ "tables": {
+  "note": "top-down photographic tabletop textures",
+  "seeds": {
+   "walnut": 11,
+   "felt": 22,
+   "marble": 22,
+   "navy": 11,
+   "burgundy": 11,
+   "slate": 11,
+   "oak": 11,
+   "ebony": 11
+  }
+ },
+ "pieces3d": {
+  "method": "img2img from the game vector piece silhouettes on green screen (denoise 0.6-0.78, seed 7), chroma-keyed",
+  "sets": [
+   "staunton",
+   "marble",
+   "metal"
+  ]
+ },
+ "ui_textures": {
+  "parchment": "ui_parchment, seed 5 (fantasy panels)"
+ }
 }
