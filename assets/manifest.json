@@ -167,5 +167,6 @@
    "hard": "dragon",
    "grand": "king"
   }
- }
+ },
+ "hires": "Scenes (2048x1152) and map re-rendered with an img2img hires pass (lanczos upscale + denoise 0.35-0.38, same prompt and seed); tables upscaled with lanczos + unsharp mask."
 }
