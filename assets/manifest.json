@@ -58,5 +58,39 @@
    "prompt": "A young brave princess of about seventeen, dark curly shoulder-length hair, small golden circlet with a single red gem, warm brown eyes, ivory travel tunic with gold embroidery and a burgundy cloak with a clasp shaped like a chess queen, determined hopeful smile. Background: a mountain view at dawn with soft light.",
    "seed": 11
   }
- }
+ },
+ "piece_style_suffix": "Stylized fantasy game icon, hand-painted 3D game splash art: chunky sculpted stylized forms, textured painterly brushwork, polished ivory with gold trim, volumetric warm golden rim light, magical sparkles, centered composition, the figure fills most of the frame, softly blurred painted background. Square composition. No text, no frame, no border, no watermark.",
+ "pieces": {
+  "pawn": {
+   "file": "assets/pieces/pawn.png",
+   "prompt": "living ivory chess pawn character with a cute face (rank avatar)",
+   "seed": 11
+  },
+  "knight": {
+   "file": "assets/pieces/knight.png",
+   "prompt": "living ivory chess knight character with a cute face (rank avatar)",
+   "seed": 11
+  },
+  "bishop": {
+   "file": "assets/pieces/bishop.png",
+   "prompt": "living ivory chess bishop character with a cute face (rank avatar)",
+   "seed": 11
+  },
+  "rook": {
+   "file": "assets/pieces/rook.png",
+   "prompt": "living ivory chess rook character with a cute face (rank avatar)",
+   "seed": 11
+  },
+  "queen": {
+   "file": "assets/pieces/queen.png",
+   "prompt": "living ivory chess queen character with a cute face (rank avatar)",
+   "seed": 11
+  },
+  "king": {
+   "file": "assets/pieces/king.png",
+   "prompt": "living ivory chess king character with a cute face (rank avatar)",
+   "seed": 22
+  }
+ },
+ "frames": "Portrait frames are vector SVG drawn in code (k_frames.js), not generated images."
 }
