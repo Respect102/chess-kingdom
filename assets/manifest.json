@@ -168,5 +168,9 @@
    "grand": "king"
   }
  },
- "hires": "Scenes (2048x1152) and map re-rendered with an img2img hires pass (lanczos upscale + denoise 0.35-0.38, same prompt and seed); tables upscaled with lanczos + unsharp mask."
+ "hires": "Scenes (2048x1152) and map re-rendered with an img2img hires pass (lanczos upscale + denoise 0.35-0.38, same prompt and seed); tables upscaled with lanczos + unsharp mask.",
+ "book": {
+  "locations": "img2img (denoise 0.86, seed 11) from a drawn road reference, one per chapter; the trail and step markers are drawn by the game",
+  "cover": "txt2img seed 22"
+ }
 }
