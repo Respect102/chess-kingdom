@@ -130,5 +130,42 @@
  },
  "ui_textures": {
   "parchment": "ui_parchment, seed 5 (fantasy panels)"
+ },
+ "map": {
+  "method": "img2img (denoise 0.82, seed 11) from the vector campaign map, parchment watercolor style",
+  "files": [
+   "assets/map/wide.webp",
+   "assets/map/tall.webp"
+  ]
+ },
+ "icons": {
+  "method": "txt2img on green screen, chroma-keyed",
+  "seeds": {
+   "cap": 11,
+   "star": 11,
+   "book": 22,
+   "kings": 22,
+   "knights": 22,
+   "gear": 22,
+   "horn": 11,
+   "medal": 22,
+   "chest": 11,
+   "flame": 11,
+   "lock": 11,
+   "bulb": 11
+  }
+ },
+ "rewards": {
+  "method": "txt2img on green screen, chroma-keyed, seed 11",
+  "slots": {
+   "t1": "medal",
+   "t2": "trophy",
+   "t3": "crown",
+   "lesson": "scroll",
+   "easy": "book",
+   "mid": "knight",
+   "hard": "dragon",
+   "grand": "king"
+  }
  }
 }
