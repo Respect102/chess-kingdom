@@ -1374,7 +1374,7 @@ body.skin-fantasy .topline h1{width:140px;height:64px;margin:-8px 0 -6px}
 
 .tbov{position:fixed;inset:0;z-index:60;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,rgba(40,24,10,.55),rgba(10,6,2,.85));padding:10px}
 .tbov[hidden]{display:none}
-.tb-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;--pw:min(520px,46vw,calc((100svh - 90px) * .75))}
+.tb-wrap{display:flex;flex-direction:column;align-items:center;gap:10px;--pw:min(640px,47.5vw,calc((100svh - 74px) * .75))}
 .tb-book{position:relative;display:flex;width:calc(var(--pw) * 2);height:calc(var(--pw) * 4 / 3);perspective:2200px;filter:drop-shadow(0 22px 30px rgba(0,0,0,.6))}
 .tb-page{position:relative;width:var(--pw);height:100%;overflow:hidden;background:linear-gradient(rgba(255,248,228,.3),rgba(255,248,228,.1)),var(--parch) center/cover,#f3e2bb;color:#3b2814}
 .tb-page.l{border-radius:10px 2px 2px 10px;box-shadow:inset -26px 0 30px -18px rgba(70,40,10,.55),inset 0 0 0 1px rgba(90,58,20,.35)}
@@ -1432,7 +1432,7 @@ body.skin-fantasy .topline h1{width:140px;height:64px;margin:-8px 0 -6px}
 .tb-bar #tbFolio{min-width:12em;text-align:center;text-shadow:0 1px 2px #000}
 .tb-bar .btn.icon{width:46px;height:46px;font-size:1.6rem;line-height:1;padding:0}
 @media (max-width:760px){
- .tb-wrap{--pw:min(94vw,calc((100svh - 84px) * .75))}
+ .tb-wrap{--pw:min(96vw,calc((100svh - 70px) * .75))}
  .tb-book{width:var(--pw)}.tb-page.r{display:none}.tb-page.l{border-radius:4px 10px 10px 4px;box-shadow:inset 14px 0 18px -12px rgba(70,40,10,.55),inset 0 0 0 1px rgba(90,58,20,.35)}
  .tb-cover{left:-5px}
  .tb-leaf.m{left:0;transform-origin:left center}.tb-leaf.m.fwd.go{transform:rotateY(-180deg)}
@@ -1449,6 +1449,39 @@ body.skin-fantasy .topline h1{width:140px;height:64px;margin:-8px 0 -6px}
 .tb-trail path{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
 .tt-a{stroke:rgba(60,35,12,.55);stroke-width:13px}.tt-b{stroke:#f3dfb0;stroke-width:8px;stroke-dasharray:2px 11px}
 .tb-loc::before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(rgba(0,0,0,0) 70%,rgba(20,10,0,.25))}
+
+/* cover: front with the title set inside the gold plaque, back = endpaper */
+.tb-cov,.tb-cf{container-type:inline-size}
+.tb-cov-t{position:absolute!important;left:23.5%!important;right:17.5%!important;top:11.8%!important;height:15%;display:flex;align-items:center;justify-content:center;
+  text-align:center;font:400 8.6cqw/1.02 Kurale,Georgia,serif!important;color:#4a2408!important;text-shadow:0 1px 0 rgba(255,244,200,.75),0 -1px 0 rgba(90,50,0,.35)!important;letter-spacing:.01em}
+.tb-cover{display:block!important;transform-style:preserve-3d;background:none!important;box-shadow:none!important;transition:none;pointer-events:none}
+.tb-cf,.tb-cb{position:absolute;inset:0;border-radius:4px 14px 14px 4px;backface-visibility:hidden}
+.tb-cf{background:var(--tb-cover) center/cover,#7a1e14;box-shadow:inset 8px 0 10px -6px rgba(0,0,0,.6),0 10px 24px rgba(0,0,0,.45)}
+.tb-cb{transform:rotateY(180deg);border-radius:14px 4px 4px 14px;background:linear-gradient(90deg,#d9c296,#f0e0bc 30%,#f0e0bc 85%,#c9ae7c),#ead8b0;box-shadow:inset 0 0 0 10px #7a1e14,inset 0 0 0 12px #c8962e}
+.tb-book:not(.closed):not(.opening) .tb-cover{display:none!important}
+.tb-book.closed .tb-cover{transform:rotateY(0)}
+.tb-book.closed .tb-page{visibility:hidden}
+.tb-book.closed{transform:translateX(calc(var(--pw) * -.5))}
+.tb-book.closed::before,.tb-book.opening::before{opacity:0}
+.tb-book{transition:transform .9s cubic-bezier(.55,.05,.35,1)}
+.tb-book::before{transition:opacity .3s .55s}
+.tb-book.opening .tb-cover{animation:tbOpen 1.05s cubic-bezier(.55,.05,.35,1) both!important}
+.tb-book.opening .tb-page.l{animation:tbShowL 1.05s step-end both!important}
+.tb-book.opening .tb-page.r{animation:none!important}
+@keyframes tbShowL{0%{visibility:hidden}50%{visibility:visible}}
+.tb-book.opening .tb-cb{animation:tbEnd 1.05s ease both}@keyframes tbEnd{0%,85%{opacity:1}100%{opacity:0}}
+@media (max-width:760px){.tb-book.closed{transform:none}.tb-cover{left:-5px!important}.tb-book.opening .tb-page.l{animation:tbShowM 1.05s ease both!important}@keyframes tbShowM{0%,35%{opacity:0}100%{opacity:1}}}
+/* page corner curls: click to turn */
+.tb-curl{position:absolute;bottom:0;z-index:6;width:54px;height:54px;padding:0;border:0;cursor:pointer;background:none;transition:width .18s,height .18s}
+.tb-curl::before{content:"";position:absolute;inset:0;filter:drop-shadow(-2px -2px 3px rgba(60,30,5,.45))}
+.tb-curl.n{right:0}.tb-curl.n::before{background:linear-gradient(135deg,transparent 50%,#e9d4a8 50%,#fff4d8 62%,#d4b680 100%);border-top-left-radius:6px}
+.tb-curl.p{left:0}.tb-curl.p::before{background:linear-gradient(225deg,transparent 50%,#e9d4a8 50%,#fff4d8 62%,#d4b680 100%);border-top-right-radius:6px;filter:drop-shadow(2px -2px 3px rgba(60,30,5,.45))}
+.tb-curl:hover,.tb-curl:focus-visible{width:74px;height:74px}
+.tb-curl::after{content:"";position:absolute;bottom:9px;width:8px;height:8px;border:solid #8a5a20;border-width:2px 2px 0 0}
+.tb-curl.n::after{right:9px;transform:rotate(45deg)}.tb-curl.p::after{left:9px;transform:rotate(-135deg)}
+.tb-curl.n{animation:tbCurl 2.6s ease-in-out 1.6s infinite}@keyframes tbCurl{0%,80%,100%{width:54px;height:54px}88%{width:66px;height:66px}}
+@media (prefers-reduced-motion:reduce){.tb-curl.n{animation:none}.tb-book{transition:none}}
+.tb-book.closed .tb-curl,.tb-book.opening .tb-curl{display:none}
 </style>
 <style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style>
 </head>
@@ -5356,7 +5389,7 @@ $('home').addEventListener('click',e=>{if(e.target.closest('#hAv'))openFrames();
 const TB={s:0,side:0,busy:false,open:false};
 const ROADPTS=[[0.5, 0.97], [0.47756027495639686, 0.9603506072043759], [0.4425135939263363, 0.9473939619748047], [0.40116343490304707, 0.9319594693103952], [0.35981327587975787, 0.9148765342102564], [0.3247665948496974, 0.8969745616734974], [0.30232686980609424, 0.8790829566992274], [0.2987975787421771, 0.8620311242865553], [0.32224965306464065, 0.845801785164666], [0.37208047820381984, 0.8293905817174515], [0.4380847008256252, 0.8127823945829487], [0.5099776989411046, 0.7959772237611573], [0.5774748505613063, 0.7789750692520776], [0.630291533697278, 0.7617759310557095], [0.6581431263600676, 0.7443798091720532], [0.6517947222627205, 0.7267371336929581], [0.614365229787303, 0.7087690679453328], [0.5566982553336249, 0.6905521806979745], [0.48974194488992573, 0.6721694124507945], [0.4244444444444444, 0.6537037037037036], [0.37175389998542063, 0.6352379949566127], [0.34261845750109343, 0.6168552267094326], [0.34688470946526057, 0.5985964912280701], [0.38194132607603964, 0.5803508771929824], [0.4374427759148564, 0.5621052631578948], [0.5029385559929371, 0.543859649122807], [0.5679781633215077, 0.5256140350877193], [0.6221110949117947, 0.5073684210526316], [0.6548868477750238, 0.48912280701754396], [0.6565650969529085, 0.4708771929824561], [0.628421052631579, 0.4526315789473684], [0.5797907048322561, 0.4343859649122807], [0.520129270544783, 0.416140350877193], [0.4588919667590027, 0.39789473684210525], [0.4055340104647583, 0.37964912280701757], [0.3695106186518927, 0.3614035087719299], [0.35969091704330075, 0.3431185303980172], [0.374286285118768, 0.32446145372665275], [0.40592592592592586, 0.3055555555555555], [0.4478087184720805, 0.28664965738445836], [0.49313354176453755, 0.2679925807130938], [0.5350992748106029, 0.24983314704119475], [0.5669047966175829, 0.23242017786849387], [0.5820457576690263, 0.215941801255987], [0.5828419000718169, 0.1993979794052691], [0.5741828254847645, 0.18279195217961802], [0.5592202729044834, 0.16670430307841008], [0.5411059813275881, 0.15171561560102162], [0.5229916897506925, 0.13840647324682898], [0.5080291371704114, 0.12735745951520844]];
 const tbMobile=()=>matchMedia('(max-width:760px)').matches;
-const tbMax=()=>Math.min(CH.length,chCur()+1)+1;            // spreads that may be visited: contents + reached chapters + the next locked one
+const tbMax=()=>Math.min(CH.length,chCur()+2)+1;            // spreads that may be visited: contents + reached chapters + the next locked one
 function tbIcon(s){return icImg(s.k==='ln'?'cap':s.k==='pz'?'star':'book','tb-ic');}
 function tbStepLabel(s){return s.k==='ln'?LESSONS[s.li].t:s.k==='pz'?`Задачи ${s.n}/${s.need}`:`Дебюты ${s.n}/${s.need}`;}
 function tbAt(t){const p=ROADPTS,f=t*(p.length-1),i=Math.min(p.length-2,Math.floor(f)),k=f-i;return [p[i][0]+(p[i+1][0]-p[i][0])*k,p[i][1]+(p[i+1][1]-p[i][1])*k];}
@@ -5368,7 +5401,7 @@ function tbTitlePage(){const s=lnStore(),n=LESSONS.filter(l=>s[l.id]).length,cur
   <button type="button" class="btn primary tb-go" data-tbgo="${cur+1}">${all?'Перечитать с начала':'Глава '+(cur+1)+' — '+CH[cur].t} ›</button></div>`;}
 function tbMapPage(){return `<div class="tb-in tb-mapp"><h3>Карта королевства</h3><p class="tb-hint">Нажмите на главу, чтобы перелистнуть к ней</p>${mapHTML()}</div>`;}
 function tbBossPage(i){const c=CH[i],o=OPPS[i],won=oppBeaten(i),reached=chReached(i),ready=chReady(i),rec=oppRec(i),st=chSteps(i),dn=st.filter(s=>s.done).length;
-  if(!reached)return `<div class="tb-in tb-boss tb-locked"><small>Глава ${i+1}</small><h2>${c.t}</h2><div class="tb-por dim">${oppSVG(i,'big')}${LOCKSVG}</div><p>Страница пока запечатана. Победите ${OPPS[i-1].n.split(' ').slice(-1)[0]} в главе ${i} — и она откроется.</p></div>`;
+  if(!reached)return `<div class="tb-in tb-boss tb-locked"><small>Глава ${i+1}</small><h2>${c.t}</h2><div class="tb-por dim">${oppSVG(i,'big')}${LOCKSVG}</div><p>Страница пока запечатана. Победите босса главы ${i} — ${OPPS[i-1].n} — и она откроется.</p></div>`;
   const quote=(c.intro.find(l=>l[0]===o.id)||c.intro[0])[1];
   return `<div class="tb-in tb-boss"><small>Глава ${i+1} из ${CH.length}</small><h2>${c.t}</h2>
   <div class="tb-por">${oppSVG(i,'big')}</div>
@@ -5389,6 +5422,8 @@ function tbRender(){const L=$('tbL'),R=$('tbR');
   if(tbMobile()){L.innerHTML=tbPage(TB.s,TB.side);R.innerHTML='';}else{L.innerHTML=tbPage(TB.s,0);R.innerHTML=tbPage(TB.s,1);}
   const mx=tbMax(),pos=tbMobile()?TB.s*2+TB.side:TB.s*2,last=tbMobile()?mx*2-1:(mx-1)*2;
   $('tbPrev').disabled=pos<=0;$('tbNext').disabled=pos>=last;
+  const cp=`<button type="button" class="tb-curl p" data-tbturn="-1" aria-label="Предыдущая страница"></button>`,cn=`<button type="button" class="tb-curl n" data-tbturn="1" aria-label="Следующая страница"></button>`;
+  if(tbMobile()){L.insertAdjacentHTML('beforeend',(pos>0?cp:'')+(pos<last?cn:''));}else{if(pos>0)L.insertAdjacentHTML('beforeend',cp);if(pos<last)R.insertAdjacentHTML('beforeend',cn);}
   $('tbFolio').textContent=TB.s?`Глава ${TB.s} · ${CH[TB.s-1].t}`:'Оглавление';
   tbStories();}
 function tbStories(){if(!TB.s||TB.busy)return;const i=TB.s-1;if(!chReached(i))return;const seen=M.camp.seen,c=CH[i];
@@ -5414,7 +5449,7 @@ function tbGo(s){s=Math.max(0,Math.min(tbMax()-1,s));if(s===TB.s){if(tbMobile()&
 function openBook(s,instant){const ov=$('tbov');TB.s=Math.max(0,Math.min(tbMax()-1,s));TB.side=0;TB.open=true;ov.hidden=false;
   const bk=$('tbBook');bk.classList.remove('opened','opening');tbRender();
   if(instant||matchMedia('(prefers-reduced-motion: reduce)').matches){bk.classList.add('opened');return;}
-  snd('page');void bk.offsetWidth;bk.classList.add('opening');setTimeout(()=>{bk.classList.add('opened');bk.classList.remove('opening');},900);}
+  bk.classList.add('closed');void bk.offsetWidth;setTimeout(()=>{snd('page');bk.classList.remove('closed');bk.classList.add('opening');},380);setTimeout(()=>{bk.classList.add('opened');bk.classList.remove('opening');},1500);}
 function closeBook(){TB.open=false;CAMP.open=null;$('tbov').hidden=true;homeMeta();}
 /* the old chapter dialog now opens the book on that chapter */
 openChapter=function(i){if(!chReached(i)){snd('lock');toast('Сначала пройдите главу '+i+': '+CH[i-1].t,'unl');return;}CAMP.open=i;
@@ -5425,12 +5460,13 @@ function bookTeaser(){const cur=chCur(),all=OPPS.every((_,i)=>oppBeaten(i)),st=c
   <span class="tb-tz"><small>${all?'Сказание прочитано':'Глава '+(cur+1)+' из '+CH.length}</small><b>${CH[cur].t}</b><span>${st.length?'Задания на дороге: '+dn+' из '+st.length:'Босс ждёт вызова'}</span><span class="tb-tz-boss">${oppSVG(cur)}<em>${OPPS[cur].n}</em></span><span class="btn primary">Открыть книгу ›</span></span></button>`;}
 (function(){const ov=document.createElement('div');ov.className='tbov';ov.id='tbov';ov.hidden=true;
   ov.innerHTML=`<div class="tb-wrap"><div class="tb-book" id="tbBook" role="dialog" aria-modal="true" aria-label="Книга «Спасти принцессу»">
-    <div class="tb-cover"><span class="tb-cov-t">Спасти<br>принцессу</span></div>
+    <div class="tb-cover"><div class="tb-cf"><span class="tb-cov-t">Спасти<br>принцессу</span></div><div class="tb-cb"></div></div>
     <div class="tb-page l" id="tbL"></div><div class="tb-page r" id="tbR"></div></div>
     <div class="tb-bar"><button type="button" class="btn icon" id="tbPrev" aria-label="Предыдущая страница">‹</button><span id="tbFolio"></span><button type="button" class="btn icon" id="tbNext" aria-label="Следующая страница">›</button><button type="button" class="btn small" id="tbClose">Закрыть</button></div></div>`;
   document.body.appendChild(ov);
   $('tbPrev').onclick=()=>tbStep(-1);$('tbNext').onclick=()=>tbStep(1);$('tbClose').onclick=closeBook;
   ov.addEventListener('click',e=>{if(e.target===ov){closeBook();return;}
+    const tt=e.target.closest('[data-tbturn]');if(tt){tbStep(+tt.dataset.tbturn);return;}
     const go=e.target.closest('[data-tbgo]');if(go){tbGo(+go.dataset.tbgo);return;}
     const nd=e.target.closest('.cnode');if(nd&&ov.contains(nd)){const i=+nd.dataset.ch;if(!chReached(i)){snd('lock');toast('Сначала пройдите главу '+i,'unl');return;}tbGo(i+1);return;}
     const f=e.target.closest('[data-tbfight]');if(f&&!f.disabled){const i=+f.dataset.tbfight;if(!(chReady(i)||i===0||oppBeaten(i))){snd('lock');toast('Сначала пройдите все задания на дороге','unl');return;}
@@ -5445,7 +5481,7 @@ function bookTeaser(){const cur=chCur(),all=OPPS.every((_,i)=>oppBeaten(i)),st=c
   $('home').addEventListener('click',e=>{const t=e.target.closest('[data-tbopen]');if(t)openBook(+t.dataset.tbopen);});
 })();
 /* paper swish for page turns: two short filtered noise bursts */
-SOUND.page=(c,t)=>{noise(c,t,.16,1800,.18,3);noise(c,t+.09,.12,3400,.1,4);};
+SOUND.page=(c,t)=>{noise(c,t,.32,1100,.55,.9);noise(c,t+.1,.24,2600,.4,1.4);noise(c,t+.26,.08,5200,.22,2);};
 try{const lv=+localStorage.getItem('chess-opp');setLevel(lv>=1&&lv<=OPPS.length&&oppOpen(lv-1)?lv:oppNext()+1);}catch(e){setLevel(1);}
 PREF.sound=PREF.sfxVol>0&&!PREF.mute;
 newGame();
