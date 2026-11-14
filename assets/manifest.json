@@ -176,5 +176,14 @@
  "book": {
   "locations": "img2img (denoise 0.86, seed 11) from a drawn road reference, one per chapter; the trail and step markers are drawn by the game",
   "cover": "txt2img seed 22"
+ },
+ "puzzles_extra": {
+  "source": "Lichess puzzle database (database.lichess.org), CC0 public domain; subset via github.com/mcognetta/lichess-combined-puzzle-game-db",
+  "sets": {
+   "end2": "themes endgame+mateIn2",
+   "sac2": "sacrifice+mateIn2",
+   "pat3": "named mate patterns+mateIn3"
+  },
+  "selection": "popularity>=80, plays>=200, rating 700-2000 spread evenly, verified mate with python-chess and the game solver"
  }
 }
