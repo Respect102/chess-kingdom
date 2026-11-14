@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Шахматное королевство</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1733,10 +1733,68 @@ body.mode-dark .hw-h b,body.cbg .hw-h b{color:var(--accent-text)}
 #pzSegM button{flex:0 0 auto;padding-inline:12px;white-space:nowrap}
 .tr-foot .btn{flex:none!important;height:auto!important;min-height:46px;padding:10px 24px!important;align-self:center}
 @media (max-width:480px){.tr-ln{display:none}.tr-row{gap:4px;justify-content:space-between;overflow:visible}.tr-op{flex:1 1 0;width:auto;min-width:0}.tr-op small{font-size:.6rem}}
+.vk-soc{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}.vk-soc .btn{flex:1 1 140px;justify-content:center}
+.rw-ad,.rw-share{margin-top:6px;width:100%;justify-content:center}
+.rw-ad{background:linear-gradient(180deg,#6aa84f,#3f7a2a)!important;color:#fff!important;border-color:#2a5a1a!important}
+.topline{position:relative}
+.g-mute{position:absolute!important;z-index:5;width:42px!important;height:42px!important;min-width:42px!important;padding:0!important;display:inline-grid!important;place-items:center}
+.g-mute .spk{width:26px;height:26px}.g-mute .spk.off{opacity:.45;filter:grayscale(1)}
+.g-mute .spk-note{position:absolute;right:-2px;top:-2px;width:15px;height:15px;border-radius:50%;background:#c8322a;color:#fff;font:700 10px/15px serif;text-align:center}
+body.home-on .g-mute{display:none!important}
+@media (min-width:601px){.g-mute{right:0;top:0}}
+@media (max-width:600px){.topline{position:static!important}.g-mute{left:max(16px,env(safe-area-inset-left,0px));top:max(18px,calc(env(safe-area-inset-top,0px) + 8px))}}
 </style>
 <style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style>
 </head>
 <body>
+<script>!function(){"use strict";var e=function(){return e=Object.assign||function(e){for(var t,n=1,o=arguments.length;n<o;n++)for(var r in t=arguments[n])Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e},e.apply(this,arguments)};function t(e,t,n,o){return new(n||(n=Promise))((function(r,p){function i(e){try{s(o.next(e))}catch(e){p(e)}}function a(e){try{s(o.throw(e))}catch(e){p(e)}}function s(e){var t;e.done?r(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,a)}s((o=o.apply(e,t||[])).next())}))}function n(e,t){var n,o,r,p,i={label:0,sent:function(){if(1&r[0])throw r[1];return r[1]},trys:[],ops:[]};return p={next:a(0),throw:a(1),return:a(2)},"function"==typeof Symbol&&(p[Symbol.iterator]=function(){return this}),p;function a(a){return function(s){return function(a){if(n)throw new TypeError("Generator is already executing.");for(;p&&(p=0,a[0]&&(i=0)),i;)try{if(n=1,o&&(r=2&a[0]?o.return:a[0]?o.throw||((r=o.return)&&r.call(o),0):o.next)&&!(r=r.call(o,a[1])).done)return r;switch(o=0,r&&(a=[2&a[0],r.value]),a[0]){case 0:case 1:r=a;break;case 4:return i.label++,{value:a[1],done:!1};case 5:i.label++,o=a[1],a=[0];continue;case 7:a=i.ops.pop(),i.trys.pop();continue;default:if(!(r=i.trys,(r=r.length>0&&r[r.length-1])||6!==a[0]&&2!==a[0])){i=0;continue}if(3===a[0]&&(!r||a[1]>r[0]&&a[1]<r[3])){i.label=a[1];break}if(6===a[0]&&i.label<r[1]){i.label=r[1],r=a;break}if(r&&i.label<r[2]){i.label=r[2],i.ops.push(a);break}r[2]&&i.ops.pop(),i.trys.pop();continue}a=t.call(e,i)}catch(e){a=[6,e],o=0}finally{n=r=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,s])}}}function o(e,t,n){if(n||2===arguments.length)for(var o,r=0,p=t.length;r<p;r++)!o&&r in t||(o||(o=Array.prototype.slice.call(t,0,r)),o[r]=t[r]);return e.concat(o||Array.prototype.slice.call(t))}function r(t,n,o){var r=function(e){var t={current:0,next:function(){return++this.current}},n={};return{add:function(o,r){var p=null!=r?r:"".concat(t.next(),"_").concat(e);return n[p]=o,p},resolve:function(e,t,o){var r=n[e];r&&(o(t)?r.resolve(t):r.reject(t),n[e]=null)}}}(o);return n((function(e){if(e.detail&&e.detail.data&&"object"==typeof e.detail.data&&"request_id"in e.detail.data){var t=e.detail.data,n=t.request_id,o=function(e,t){var n={};for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&t.indexOf(o)<0&&(n[o]=e[o]);if(null!=e&&"function"==typeof Object.getOwnPropertySymbols){var r=0;for(o=Object.getOwnPropertySymbols(e);r<o.length;r++)t.indexOf(o[r])<0&&Object.prototype.propertyIsEnumerable.call(e,o[r])&&(n[o[r]]=e[o[r]])}return n}(t,["request_id"]);n&&r.resolve(n,o,(function(e){return!("error_type"in e)}))}})),function(n,o){return void 0===o&&(o={}),new Promise((function(p,i){var a=r.add({resolve:p,reject:i},o.request_id);t(n,e(e({},o),{request_id:a}))}))}}var p,i="undefined"!=typeof window,a=Boolean(i&&window.AndroidBridge),s=Boolean(i&&window.webkit&&window.webkit.messageHandlers&&window.webkit.messageHandlers.VKWebAppClose),u=Boolean(i&&window.ReactNativeWebView&&"function"==typeof window.ReactNativeWebView.postMessage),c=i&&!a&&!s,l=c&&/(^\?|&)vk_platform=mobile_web(&|$)/.test(location.search),d=c?"message":"VKWebAppEvent",b=o(["VKWebAppInit","VKWebAppGetCommunityAuthToken","VKWebAppAddToCommunity","VKWebAppAddToHomeScreenInfo","VKWebAppClose","VKWebAppCopyText","VKWebAppCreateHash","VKWebAppGetUserInfo","VKWebAppSetLocation","VKWebAppSendToClient","VKWebAppGetClientVersion","VKWebAppGetPhoneNumber","VKWebAppGetEmail","VKWebAppGetGroupInfo","VKWebAppGetGeodata","VKWebAppGetCommunityToken","VKWebAppGetConfig","VKWebAppGetLaunchParams","VKWebAppSetTitle","VKWebAppGetAuthToken","VKWebAppCallAPIMethod","VKWebAppJoinGroup","VKWebAppLeaveGroup","VKWebAppAllowMessagesFromGroup","VKWebAppDenyNotifications","VKWebAppAllowNotifications","VKWebAppOpenPayForm","VKWebAppOpenApp","VKWebAppShare","VKWebAppShowWallPostBox","VKWebAppScroll","VKWebAppShowOrderBox","VKWebAppShowLeaderBoardBox","VKWebAppShowInviteBox","VKWebAppShowRequestBox","VKWebAppAddToFavorites","VKWebAppShowStoryBox","VKWebAppStorageGet","VKWebAppStorageGetKeys","VKWebAppStorageSet","VKWebAppFlashGetInfo","VKWebAppSubscribeStoryApp","VKWebAppOpenWallPost","VKWebAppCheckAllowedScopes","VKWebAppCheckBannerAd","VKWebAppHideBannerAd","VKWebAppShowBannerAd","VKWebAppCheckNativeAds","VKWebAppShowNativeAds","VKWebAppRetargetingPixel","VKWebAppConversionHit","VKWebAppShowSubscriptionBox","VKWebAppCheckSurvey","VKWebAppShowSurvey","VKWebAppScrollTop","VKWebAppScrollTopStart","VKWebAppScrollTopStop","VKWebAppShowSlidesSheet","VKWebAppTranslate","VKWebAppRecommend","VKWebAppAddToProfile","VKWebAppGetFriends"],c&&!l?["VKWebAppResizeWindow","VKWebAppAddToMenu","VKWebAppShowInstallPushBox","VKWebAppShowCommunityWidgetPreviewBox","VKWebAppCallStart","VKWebAppCallJoin","VKWebAppCallGetStatus"]:["VKWebAppShowImages"],!0),f=i?window.AndroidBridge:void 0,A=s?window.webkit.messageHandlers:void 0,w=c?parent:void 0;var W,V,K,S,h,v,y,m,E,g;!function(e){e.REWARD="reward",e.INTERSTITIAL="interstitial"}(W||(W={})),function(e){e.RESIZE="resize",e.OVERLAY="overlay"}(V||(V={})),function(e){e.TOP="top",e.BOTTOM="bottom"}(K||(K={})),function(e){e.LEFT="left",e.RIGHT="right",e.CENTER="center"}(S||(S={})),function(e){e.COMPACT="compact",e.REGULAR="regular"}(h||(h={})),function(e){e.HORIZONTAL="horizontal",e.VERTICAL="vertical"}(v||(v={})),function(e){e.CAMERA="camera",e.LOCATION="location",e.PHOTO="photo"}(y||(y={})),function(e){e.RU="ru",e.UK="uk",e.UA="ua",e.EN="en",e.BE="be",e.KZ="kz",e.PT="pt",e.ES="es"}(m||(m={})),function(e){e.ADMIN="admin",e.EDITOR="editor",e.MEMBER="member",e.MODER="moder",e.NONE="none"}(E||(E={})),function(e){e.DESKTOP_WEB="desktop_web",e.DESKTOP_WEB_MESSENGER="desktop_web_messenger",e.DESKTOP_APP_MESSENGER="desktop_app_messenger",e.MOBILE_WEB="mobile_web",e.MOBILE_ANDROID="mobile_android",e.MOBILE_ANDROID_MESSENGER="mobile_android_messenger",e.MOBILE_IPHONE="mobile_iphone",e.MOBILE_IPHONE_MESSENGER="mobile_iphone_messenger",e.MOBILE_IPAD="mobile_ipad"}(g||(g={}));var O=function(e){var i=void 0,l=[],W=Math.random().toString(36).substring(2,5);function V(e){l.push(e)}function K(e){return a?!(!f||"function"!=typeof f[e]):s?!(!A||!A[e]||"function"!=typeof A[e].postMessage):!!c&&b.includes(e)}function S(){return s||a}function h(){return c&&window.parent!==window}function v(){return S()||h()}function y(e){if(s||a)return o([],l,!0).map((function(t){return t.call(null,e)}));var t=null==e?void 0:e.data;if(c&&t){if(u&&"string"==typeof t)try{t=JSON.parse(t)}catch(e){}var n=t.type,r=t.data,p=t.frameId;n&&("VKWebAppSettings"!==n?o([],l,!0).map((function(e){return e({detail:{type:n,data:r}})})):i=p)}}u&&/(android)/i.test(navigator.userAgent)?document.addEventListener(d,y):"undefined"!=typeof window&&"addEventListener"in window&&window.addEventListener(d,y);var m=r((function(t,n){f&&f[t]?f[t](JSON.stringify(n)):A&&A[t]&&"function"==typeof A[t].postMessage?A[t].postMessage(n):u?window.ReactNativeWebView.postMessage(JSON.stringify({handler:t,params:n})):w&&"function"==typeof w.postMessage&&w.postMessage({handler:t,params:n,type:"vk-connect",webFrameId:i,connectVersion:e},"*")}),V,W);return V((function(e){if(e.detail&&"SetSupportedHandlers"===e.detail.type)p=new Set(e.detail.data.supportedHandlers)})),{send:m,sendPromise:m,subscribe:V,unsubscribe:function(e){var t=l.indexOf(e);t>-1&&l.splice(t,1)},supports:function(e){return console.warn("bridge.supports method is deprecated. Use bridge.supportsAsync instead."),K(e)},supportsAsync:function(e){return t(this,void 0,void 0,(function(){var t;return n(this,(function(n){switch(n.label){case 0:if(a||s)return[2,K(e)];if(p)return[2,p.has(e)];n.label=1;case 1:return n.trys.push([1,3,,4]),[4,m("SetSupportedHandlers")];case 2:return t=n.sent(),p=new Set(t.supportedHandlers),[3,4];case 3:return n.sent(),p=new Set(["VKWebAppInit"]),[3,4];case 4:return[2,p.has(e)]}}))}))},isWebView:S,isIframe:h,isEmbedded:v,isStandalone:function(){return!v()}}}("2.15.4");window.vkBridge=window.vkConnect=O}();
+//# sourceMappingURL=browser.min.js.map
+
+/* ===== VK boot: VKWebAppInit first; the save is mirrored to VK Storage (cloud) and restored on other devices =====
+   Outside VK (GitHub Pages, artifact, local file) the game starts at once with localStorage only. */
+(function(){
+  const b=window.vkBridge||null,inVK=!!(b&&b.isEmbedded&&b.isEmbedded());
+  window.VKB={inVK,bridge:b};
+  if(b)b.send('VKWebAppInit').catch(()=>{});
+  /* some iOS WebViews block storage inside iframes: keep the game alive with an in-memory store (the cloud save still works) */
+  let ok=true;try{localStorage.setItem('__t','1');localStorage.removeItem('__t');}catch(e){ok=false;}
+  if(!ok){const mem={};const shim={getItem:k=>Object.prototype.hasOwnProperty.call(mem,k)?mem[k]:null,setItem:(k,v)=>{mem[k]=String(v);},removeItem:k=>{delete mem[k];},clear:()=>{for(const k in mem)delete mem[k];},key:i=>Object.keys(mem)[i]||null,get length(){return Object.keys(mem).length;}};
+    try{Object.defineProperty(window,'localStorage',{value:shim,configurable:true});}catch(e){}}
+  const PFX='chess-',TSK='chess-cloud-ts',CH=1300;
+  const LS=window.localStorage;
+  function lsGet(k){try{return LS.getItem(k);}catch(e){return null;}}
+  function lsSet(k,v){try{Storage.prototype.setItem.call(LS,k,v);}catch(e){try{LS.setItem(k,v);}catch(_){}}}
+  const send=(m,p)=>inVK?b.send(m,p):Promise.reject(new Error('not in VK'));
+  /* --- push: every changed chess-* key goes to VK Storage, split into chunks under the 4 KB limit --- */
+  const dirty=new Set();let tm=null,busy=false,pulled=!inVK;
+  function mark(k){if(!inVK||typeof k!=='string'||k.indexOf(PFX)!==0||k===TSK)return;dirty.add(k);clearTimeout(tm);tm=setTimeout(flush,4000);}
+  async function flush(){if(!inVK||busy||!pulled||!dirty.size)return;busy=true;const ks=[...dirty];dirty.clear();
+    try{for(const k of ks){const v=lsGet(k)||'',n=Math.max(1,Math.ceil(v.length/CH));
+        for(let i=0;i<n;i++)await send('VKWebAppStorageSet',{key:'c_'+k+'_'+i,value:v.slice(i*CH,(i+1)*CH)});
+        await send('VKWebAppStorageSet',{key:'c_'+k,value:'#'+n});}
+      const ts=String(Date.now());await send('VKWebAppStorageSet',{key:'c__ts',value:ts});lsSet(TSK,ts);
+      const all=JSON.parse(lsGet(PFX+'cloud-keys')||'[]');let ch=false;for(const k of ks)if(!all.includes(k)){all.push(k);ch=true;}
+      if(ch){lsSet(PFX+'cloud-keys',JSON.stringify(all));await send('VKWebAppStorageSet',{key:'c__keys',value:JSON.stringify(all)});}
+    }catch(e){ks.forEach(k=>dirty.add(k));}busy=false;}
+  window.VKB.flush=flush;
+  if(inVK){const st=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){st.call(this,k,v);if(this===window.localStorage)mark(k);};
+    if(!ok){const s0=LS.setItem;LS.setItem=function(k,v){s0(k,v);mark(k);};}
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)flush();});
+    b.subscribe(e=>{const t=e&&e.detail&&e.detail.type;if(t==='VKWebAppViewHide')flush();});}
+  /* --- pull: if the cloud copy is newer (another device), write it into local storage before the game reads it --- */
+  async function pull(){const r=await send('VKWebAppStorageGet',{keys:['c__ts','c__keys']});const g=k=>((r.keys||[]).find(x=>x.key===k)||{}).value||'';
+    const cts=+g('c__ts')||0,lts=+lsGet(TSK)||0;if(!cts||cts<=lts)return false;
+    const keys=JSON.parse(g('c__keys')||'[]').filter(k=>typeof k==='string'&&k.indexOf(PFX)===0);if(!keys.length)return false;
+    const heads=await send('VKWebAppStorageGet',{keys:keys.map(k=>'c_'+k)});const hv=k=>((heads.keys||[]).find(x=>x.key==='c_'+k)||{}).value||'';
+    const parts=[];for(const k of keys){const n=+(hv(k).slice(1))||0;for(let i=0;i<n;i++)parts.push('c_'+k+'_'+i);}
+    const got={};for(let i=0;i<parts.length;i+=90){const rr=await send('VKWebAppStorageGet',{keys:parts.slice(i,i+90)});(rr.keys||[]).forEach(x=>{got[x.key]=x.value;});}
+    for(const k of keys){const n=+(hv(k).slice(1))||0;if(!n)continue;let v='';for(let i=0;i<n;i++)v+=got['c_'+k+'_'+i]||'';lsSet(k,v);}
+    lsSet(PFX+'cloud-keys',JSON.stringify(keys));lsSet(TSK,String(cts));return true;}
+  if(!inVK)return;
+  /* the game starts with the local copy at once; a newer cloud copy (played on another device) is written and the page reloads once */
+  pull().then(changed=>{pulled=true;if(changed){dirty.clear();location.reload();}else flush();},()=>{pulled=true;flush();});
+})();
+</script>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -6089,6 +6147,58 @@ ACH.push(
  fxFinale=function(kind,stats){const m=FM[kind];let tot=0;for(const [l] of PZL)tot+=PUZ[l].length;const oc=fxCard;
   fxCard=function(h){h=String(h);if(m)h=h.replace(/<h3>[^<]*<\/h3>/,'<h3>'+m[1]+'</h3>').replace(/Все 50 [^<]*решены!/,m[2]);else h=h.replace('все 150 задач','все '+tot+' задач');arguments[0]=h;return oc.apply(this,arguments);};
   try{return _ff.call(this,m?m[0]:kind,stats);}finally{fxCard=oc;}};}
+/* ===== VK layer inside the game: pause on hide, VK ads (interstitial between games, reward ×2 XP), invite / share / friends leaderboard ===== */
+const VKX=(function(){
+  const V=window.VKB||{inVK:false},b=V.bridge,inVK=!!V.inVK;
+  const send=(m,p)=>inVK?b.send(m,p):Promise.reject(new Error('not in VK'));
+  /* pause / resume: music, sounds */
+  let hiddenByVK=false,adOn=false;
+  function pauseAll(){try{musStop();}catch(e){}try{if(AC)AC.suspend();}catch(e){}}
+  function resumeAll(){if(adOn||document.hidden)return;try{if(AC)AC.resume().then(()=>{try{musSync();}catch(e){}},()=>{});}catch(e){}}
+  if(inVK)b.subscribe(e=>{const t=e&&e.detail&&e.detail.type;if(t==='VKWebAppViewHide'){hiddenByVK=true;pauseAll();}if(t==='VKWebAppViewRestore'){hiddenByVK=false;resumeAll();}});
+  /* ads */
+  const AD={last:Date.now(),due:false,puz:0,GAP:180000};
+  const check=f=>send('VKWebAppCheckNativeAds',{ad_format:f}).then(r=>!!(r&&r.result)).catch(()=>false);
+  async function show(f){if(!inVK)return false;if(!await check(f))return false;adOn=true;pauseAll();
+    try{const r=await send('VKWebAppShowNativeAds',{ad_format:f});return !!(r&&r.result);}catch(e){return false;}finally{adOn=false;resumeAll();}}
+  async function between(){if(!AD.due||Date.now()-AD.last<AD.GAP)return;AD.due=false;const ok=await show('interstitial');if(ok)AD.last=Date.now();}
+  if(inVK){check('interstitial');check('reward');}
+  return {inVK,send,show,between,check,AD};})();
+
+/* a finished game (or every 5 solved puzzles) makes the next screen change eligible for an interstitial, at most once per 3 minutes */
+{const _mg=metaGame;metaGame=function(){const r=_mg.apply(this,arguments);VKX.AD.due=true;return r;};}
+{const _ps=metaPuzzle;metaPuzzle=function(){const r=_ps.apply(this,arguments);if(++VKX.AD.puz%5===0)VKX.AD.due=true;return r;};}
+{const _ng=newGame;newGame=function(){const r=_ng.apply(this,arguments);if(VKX.AD.due)setTimeout(()=>VKX.between(),400);return r;};}
+new MutationObserver(()=>{if(!$('home').hidden&&VKX.AD.due)setTimeout(()=>VKX.between(),400);}).observe($('home'),{attributes:true,attributeFilter:['hidden']});
+
+/* reward ad on the result card: watch an ad to double the experience of this game */
+{const _er=endReward;endReward=function(r,win){let h=_er.apply(this,arguments);
+  if(VKX.inVK&&r&&r.xp>0)h+=`<button type="button" class="btn rw-ad" data-adxp="${r.xp}" hidden>▶ Смотреть рекламу: ещё +${r.xp} опыта</button>`;
+  if(VKX.inVK&&r&&r.first&&win)h+=`<button type="button" class="btn rw-share" data-share="${r.i}">Поделиться победой</button>`;
+  if(VKX.inVK)setTimeout(()=>{const bt=document.querySelector('.rw-ad[hidden]');if(bt)VKX.check('reward').then(ok=>{if(ok)bt.hidden=false;});},50);
+  return h;};}
+document.addEventListener('click',async e=>{
+  const a=e.target.closest('.rw-ad');
+  if(a&&!a.disabled){a.disabled=true;const xp=+a.dataset.adxp;const ok=await VKX.show('reward');
+    if(ok){gain(xp,'за просмотр рекламы');a.textContent='Опыт удвоен ✓';}else{a.disabled=false;toast('Реклама сейчас недоступна — попробуйте позже','unl');}return;}
+  const s=e.target.closest('.rw-share');
+  if(s){const i=+s.dataset.share;VKX.send('VKWebAppShowWallPostBox',{message:`Победа над боссом «${OPPS[i]?OPPS[i].n:''}» в игре «Шахматное королевство»! Глава ${i+1} из ${OPPS.length} пройдена.`}).catch(()=>{});return;}
+  if(e.target.closest('#vkInvite')){VKX.send('VKWebAppShowInviteBox').catch(()=>{});return;}
+  if(e.target.closest('#vkShare')){VKX.send('VKWebAppShare').catch(()=>{});return;}
+  if(e.target.closest('#vkBoard')){VKX.send('VKWebAppShowLeaderBoardBox',{user_result:lvNow()}).catch(()=>{});return;}
+});
+/* social buttons: settings (invite, share) and statistics (friends' levels) — only inside VK, never required */
+if(VKX.inVK){
+  const sc=document.querySelector('#setov .setcard');
+  if(sc)sc.insertAdjacentHTML('beforeend',`<div class="vk-soc"><button type="button" class="btn" id="vkInvite">Пригласить друзей</button><button type="button" class="btn" id="vkShare">Поделиться игрой</button></div>`);
+  const sh=document.querySelector('#statov .bk-top');
+  if(sh)sh.insertAdjacentHTML('beforeend',`<button class="btn small" id="vkBoard" type="button">Уровни друзей</button>`);
+}
+/* sound button on every game screen (VK moderation: mute must always be visible) — same three modes as on the home screen */
+{const tl=document.querySelector('.board-col .topline');if(tl){tl.insertAdjacentHTML('beforeend','<button type="button" class="btn icon g-mute" id="gMute"></button>');
+  const upd=()=>{const s=sndSt(),b=$('gMute');b.innerHTML=SPK(s);b.title=SNDN[s];b.setAttribute('aria-label','Звук: '+SNDN[s]);};upd();
+  $('gMute').onclick=()=>{const s=(sndSt()+1)%3;PREF.mute=s===0;PREF.noMus=s===1;if(s&&!PREF.sfxVol)PREF.sfxVol=.85;if(s===2&&!PREF.musVol)PREF.musVol=.7;savePref();volSync();upd();toast(SNDN[s]);};
+  const _hm=homeMeta;homeMeta=function(){const r=_hm.apply(this,arguments);try{upd();}catch(e){}return r;};}}
 try{const lv=+localStorage.getItem('chess-opp');setLevel(lv>=1&&lv<=OPPS.length&&oppOpen(lv-1)?lv:oppNext()+1);}catch(e){setLevel(1);}
 PREF.sound=PREF.sfxVol>0&&!PREF.mute;
 newGame();
