@@ -1383,7 +1383,7 @@ body.cbg :is(.newcard,.setcard,.achcard){scrollbar-color:#d6b46a rgba(255,255,25
 @media (min-width:1000px) and (min-aspect-ratio:5/4){
  .app,body.solo .app{max-width:none!important;justify-content:center;align-items:start;
    grid-template-columns:min(calc(100vh - 30px),calc(100vw - 500px)) minmax(340px,420px)!important;
-   grid-template-rows:auto auto auto auto auto 1fr auto;column-gap:26px!important;row-gap:10px!important;padding-block:12px 14px!important;height:100vh;box-sizing:border-box}
+   grid-template-rows:auto auto auto auto auto 1fr;column-gap:26px!important;row-gap:10px!important;padding-block:12px 14px!important;height:100vh;box-sizing:border-box}
  .board-col{display:contents}
  .board-col>.board-row{grid-column:1;grid-row:1 / -1;align-self:start;max-width:none!important;width:100%;min-width:0!important}
  .board-col>.topline{grid-column:2;grid-row:1}
@@ -1401,12 +1401,19 @@ body.cbg :is(.newcard,.setcard,.achcard){scrollbar-color:#d6b46a rgba(255,255,25
  .app>.panel>*{max-height:none!important}
 }
 body.noflip #flipBtn{display:none!important}
-.menu-dock{display:none}
 @media (min-width:1000px) and (min-aspect-ratio:5/4){
- .app>.menu-dock{display:flex;justify-content:flex-end;grid-column:2;grid-row:7;position:relative;z-index:30}
- .menu-dock .menu-wrap{margin-left:0}
- .menu-dock .menu-pop{right:0;bottom:calc(100% + 8px);max-height:calc(100vh - 110px);overflow-y:auto}
- body.home-on .app>.menu-dock{visibility:hidden}
+ .actions .menu-pop{top:calc(100% + 8px);bottom:auto;right:0;max-height:calc(100vh - 230px);overflow-y:auto}
+}
+.hp-btn.snd{position:relative}
+.hp-btn.snd .spk-note{position:absolute;right:1px;top:1px;width:17px;height:17px;border-radius:50%;background:#c8322a;color:#fff;font:700 12px/17px serif;text-align:center;box-shadow:0 0 0 1.5px #fff4d6;pointer-events:none}
+.hp-btn.snd .spk-x{position:absolute;left:50%;top:50%;width:30px;height:3.5px;border-radius:2px;background:#c8322a;transform:translate(-50%,-50%) rotate(-45deg);box-shadow:0 0 0 1.5px #fff4d6;pointer-events:none}
+.tb-boss .tb-story{margin:.2em auto .5em;max-width:34em;font-size:clamp(13px,1.8cqw,17px);line-height:1.5;text-align:center;color:#4a2c10;text-wrap:pretty}
+.tb-boss .tb-desc b{color:#7a4a14}
+@media (max-width:600px){#actExit{display:none!important}}
+@media (min-width:1000px) and (min-aspect-ratio:5/4){
+ .actions{flex-wrap:nowrap!important}
+ .actions #menuBtn{width:48px;min-width:48px;padding:0;justify-content:center}
+ .actions #menuBtn .mlbl{display:none}
 }
 /* ===== painted board squares (generated textures, calmed so pieces stay readable) ===== */
 .board.t-castle .sq.l,.sw.t-castle .sw-b .l{background:url(data:image/webp;base64,UklGRoAEAABXRUJQVlA4IHQEAAAQKQCdASoAAQABPnk4mEqmpiqnIHVZMVAPCWkqvPEH5OyDsGlLGEg/wG52l5u/vVV7yaU/f8zI/+p8gGwjyRCfTdTkfrHJKcuanR9TPNxecMSkVKbOhjYgjSPVMV3f9gzVZr91V8COX7Iy4WG3QxPppeprucg59qBcKO2mSUZjFZcucensADAQbESrABPZo1UvCV9UmF6GLotfHmvcFBjP+t4zGul1YN2J5khZ932Pk4iZ+AG1sNhUcEB5LAlRkfzzST+YBEv/ODCEqygqHQitBAm+f+9vzQKUB4gUD1JB9LdtohmwfmMBAFH6ahl4oXmhJ193n1ZYYq1F82f5dmHVmtQbZzjMrQw1sH9Aswpq3Nh5HLPhFKNQHE0K6qqwkdlEmYjpCUmSAIE6HCAPIsB9D9v4c5h6uTgT2GJuy/STPFSQFGBDoBOZRbbZpblvMsnAAP72rVnp+qtPb+ibC6h29ojR9XkNNCCXEsvvWv/PypbNhzBNa87wkkksWCaxvMgfJMtzSe2ybTQUUz3NaK+4CVULM+MIBALpt2veqjj0JBk5jRnt+yne53Ah8/3ooEAeqsah+x0wWpnZpm3ZGCUpDge+qoRlBBl6gfPctVDl+ojNRJHO0a1QI2pwBbnQuOe8Tw52g0Eb6rwgahjQUVHmvMvMHh8QoN+wAv8eEQdbrFMqyVGo5mWmXeOgwXbkX7D+gmj1LyFAU66jFukBUMmdZWB6ibA3CHFFMlmEt+lpwMWeCYlc9Dp+bVfCsvIgskXEL2P84eXR1kr51K6jiwKBDMytiLhnSM25WM9OloYJ1OodNDm1xxbzvTB4bj3+FuDKhfmAsTwLk2RuQs4aa8bEKraV2F1rNflPlt01lu6rHSO/R3zLnfCjPIgtIds9owgehboYmKu2nv0KLd+SzgN1BGpP0VxMJhOsu60O6Lf1rY5VPQanQaN7LcL7ozuhGNNZjFSO0n5B3nKewVCABPKIWtGbdK0JMlcLfU0pJm32yGDdFsvVFLLypIJGNFOBB1WJKRPFjFYKV8HofSwb6DVeIQzmMC/0+eMAJ3g6wPwAnxBDN0HUo8LCleyPd1s+SlZbz66y21FQubvfS3K4z4rVpLY8RrtZhNDJwmvK/2/V+rZP+sCz5XdUoUDMThbCwmblXXPqoaRSsnJJel5YeR2oHoddz82qNEbw4DHtxbhy2pvDWrLtssZ+CuORJR5nYXL9DAyHOmE61jZxq2Wna/gwLyVxy2AHXNcpCLFWIy3A/d/EvPU6EfohKmAhu6xUZdcLAjKVNOQ5ch5vU1xTiuN1a+uEzY9GLFzFtLFKh1E8/BmYZmQsFoo8Mml+4yOibE2IfEnx6og36A6SE/AdGjAma/85scCzvQ9F1AbZsQrsoLJbbIWZ4tTHCPQmjwuDXuIdWIDcbgjzgmZQH1O/Gm4nTGC7MbVuPQtHcQdhT7aj0uTW+iwWa4sdoQ9DjX7wl34xqtCgblFBwY8fRHCJm3SE+RUNEzs6VzI+/D4+tJdjtdqyAAA=) center/cover no-repeat!important}.board.t-castle .sq.d,.sw.t-castle .sw-b .d{background:url(data:image/webp;base64,UklGRsQEAABXRUJQVlA4ILgEAADwNwCdASoAAQABPnk8mUqkoyWroRQJkXAPCWluQpGkQEioPWs2pcDYzE8/UB7maNfVEys7wp8gLfhQaz2mNYCog/P8QB7dqgLvL9Ci1fJc07k8e1T+Zi3fqDOMWMX0fSlAtYZ1DfuAMvOZpF94arp0jWjywz7dgK2Y9XACPNeSoqJBISGu93gG5U/TQZCc7n56lzwc9jo93sWdQPBhvVvBrCFkXSd9Ep594KepS4D3IO8k704SPcf2uVd/jtKBT0fz1lymF8FMk8Qg5JSdZ6L4mnycaSkSN8ppzKUIGG3vPNghd/Hx+PAdwh2XyAvDxe+Po7YtK9frq5nPMB8I7MgAcS4gYu4Fh5gIya0yvXxzmcQbZpWDQAOCUvyFcyYVqURtQELTyN9vSoy+J43PuLg7ON8ck13PFSKCjpfOEpUvxqlvay35esULSo2FXm4gFtRUKN/3J0CDqYvcdekvRQYBP/pJSfb8oZ9dvgtu3SVRTfr3IyNhCGZsaPdDGIlGtl+0Z0cDBmfW3DAEsQp7CeDE3+OW4wjBMMb69lGm0FcQc7smycJz50LDhI4FaEWV5hbmHplqUDtmXTK+QiSLxcXw6lQpqMJTvAAA/uSk11GHEUMpN2aI2SSqnnD6esqC4H0AVwQ1qI8g3xZiCNmz+J3kJ2VTFAlhLoqPXhTDnWhY4p6KEGa9B2qCMrkJ062JQ2RltSP6T++Mh1r9XZugp4tfkBtZiBTCdlD9yiHFOkBszBHJwY3Ndj3aU+asuIPftMDyUsX4K2WUve171MYIAkOPBllekacCGE5OQRuNneq3cocDvwevs9AQ7H6WD4IAxDB+4wgGC1eFOCdhh5Lgycsx048LHJrKblYlnuSrW7OhKR+DfNmneK/fstzSufibSupMPWHaz88gnJPnish0XY3NRluwCGtS3hzoqo34U1CtFHv8rQ2PIghmla0BxHR0/ifd+WVYoV8bRVIbuH1QKxWrW4m0TEBYUD//D6O1r85WMtAuRg8d+0kLTVmI9xtplTSAFtQeQhv4byTioZmSS49DFSlqil8xAbbWS0/dok/lkEUPQZNtW+WbQCi0MFoz5EabjgENkrlVJ9G3LJ+Qz2uE6VN5f5dCVtEaG7pvztvoy3AjkArviLOVjH/pT8K3dd1ejwuPoNJaJJzeFudBbsgk7AXYlfMvMoJZDeA5tl8QC1LUCPBo7JoYtC5TCqHOD32V/Ce9gHMKtbxEb/ltPBqKM4d3iAWPC7jpc4+vqX0JTTQBEKZB7uQTVLI5pXRWM6AL+vqM/S9hNXLIGQ9jCY8zTbGM6RPWmJ0qC67a6Tyx403rV+4enu77uUgUBJt0F7TebM0l+CjCqPXbANuCl4aEmsZT43W2T4H4X36iFY53jNS36AkSVdpQ/UMWAk5lHXPU6jdt7QSXIFR0MFE5MKcRuOYLAdh6yFaBYKGByisEuVeuABsBk/66deZIzbsmH/kiy074WSNpHF2uz6kvSBkcJSgK7p0ykab+0HumMQ3+AgIEIOk1l6RDEot+KwA/dw7/XaroHgEavcpsTPs1tzocWlB9c/xjPCsQ7QK3azCxOxKc3Y1nzhyeyqA69QaeVac5y2zUiVAAAA==) center/cover no-repeat!important}
@@ -3827,7 +3834,7 @@ function applyLook(){
   $('msgT').onchange=e=>{PREF.msgs=e.target.checked;savePref();if(!PREF.msgs)hideSay();};
   $('sndT').onchange=e=>{PREF.sound=e.target.checked;savePref();if(PREF.sound)snd('move');};
   $('vibT').onchange=e=>{PREF.vib=e.target.checked;savePref();};
-  $('musV').oninput=e=>{PREF.musVol=e.target.value/100;if(PREF.musVol>0)PREF.mute=false;savePref();volLabels();ac();volSync();};
+  $('musV').oninput=e=>{PREF.musVol=e.target.value/100;if(PREF.musVol>0){PREF.mute=false;PREF.noMus=false;}savePref();volLabels();ac();volSync();};
   $('sfxV').oninput=e=>{PREF.sfxVol=e.target.value/100;if(PREF.sfxVol>0)PREF.mute=false;savePref();volLabels();volSync();};
   $('sfxV').onchange=()=>snd('move');
 })();
@@ -3954,7 +3961,7 @@ function vib(p){if(!PREF.vib)return;try{navigator.vibrate&&navigator.vibrate(p);
 /* ===== Audio v2: buses (master <- music <- duck, sfx), composed theme music, ambience ===== */
 if(PREF.sfxVol==null)PREF.sfxVol=PREF.sound===false?0:.85;
 if(PREF.musVol==null||PREF.aud!==2){if(PREF.musVol==null||PREF.musVol===.4)PREF.musVol=.7;PREF.aud=2;}
-function vol(k){if(PREF.mute)return 0;const v=Math.max(0,Math.min(1,+PREF[k+'Vol']||0));return v*v;}
+function vol(k){if(PREF.mute||(k==='mus'&&PREF.noMus))return 0;const v=Math.max(0,Math.min(1,+PREF[k+'Vol']||0));return v*v;}
 let MASTER=null,SFXG=null,MUSG=null,DUCK=null,MUSR=null;
 function master(c){if(MASTER&&MASTER.context===c)return MASTER;const lim=c.createDynamicsCompressor();lim.threshold.value=-4;lim.knee.value=3;lim.ratio.value=16;lim.attack.value=.003;lim.release.value=.15;
   MASTER=c.createGain();MASTER.gain.value=1;MASTER.connect(lim);lim.connect(c['destination']);return MASTER;}
@@ -5234,14 +5241,16 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('achov').hidden)
 
 /* --- home widgets --- */
 const FIRE=icImg('flame','fire-ic');
-const SPK=on=>icImg('horn','spk'+(on?'':' off'));
+const SPK=s=>icImg('horn','spk'+(s?'':' off'))+(s===2?'<i class="spk-note" aria-hidden="true">♪</i>':'')+(s?'':'<i class="spk-x" aria-hidden="true"></i>');
+const SNDN=['Звук выключен','Только звуки','Звуки и музыка'];
+function sndSt(){return PREF.mute?0:PREF.noMus?1:2;}
 function homeMeta(){
   const r=rankOf(M.xp),nx=RANKS[r+1],lo=RANKS[r][1],pct=nx?Math.min(100,(M.xp-lo)/(nx[1]-lo)*100):100,st=streakNow();
   $('hProf').innerHTML=`<button type="button" class="hp-rank" id="hAv" aria-label="Аватарка: выбрать рамку">${meSVG(r,'live')}</button>
     <div class="hp-mid"><div class="hp-t"><small>Звание</small><b>${RANKS[r][0]}</b><em>${nx?`${M.xp} / ${nx[1]} опыта`:`${M.xp} опыта`}</em></div><div class="hc-bar"><i style="width:${pct}%"></i></div><small class="hp-nx">${nx?`До звания «${nx[0]}» — ${nx[1]-M.xp}`:'Высшее звание'}</small></div>
     <span class="hp-streak${st?'':' off'}" title="Дней подряд">${FIRE}<b>${st}</b><small>${plural(st,'день','дня','дней')}<br>подряд</small></span>
     <button type="button" class="hp-btn" id="hAch" aria-label="Достижения">${MEDAL(true)}<small>${achCount()}/${ACH.length}</small></button>
-    <button type="button" class="hp-btn snd" id="hMute" aria-label="${PREF.mute?'Включить звук':'Выключить звук'}" aria-pressed="${PREF.mute?'true':'false'}">${SPK(!PREF.mute)}</button>`;
+    <button type="button" class="hp-btn snd" id="hMute" aria-label="Звук: ${SNDN[sndSt()]}" title="${SNDN[sndSt()]}">${SPK(sndSt())}</button>`;
   const ci=chCur(),all=OPPS.every((_,i)=>oppBeaten(i)),cst=chSteps(ci),dn=cst.filter(x=>x.done).length;
   $('hPath').innerHTML=`<div class="hs-h"><b>Спасти принцессу</b><small>${all?'Все главы пройдены':'Глава '+(ci+1)+' из '+CH.length}</small></div><p class="hs-sub">${(()=>{const s=lnStore(),n=LESSONS.filter(l=>s[l.id]).length,d=n>=LESSONS.length;return `<i>${d?'Наука пройдена — осталось победить дракона':'Путь ученика: от первого хода до мата дракону'}</i><span class="hs-chip${d?' done':''}">${icImg('cap')}Уроки ${n}/${LESSONS.length}</span>`;})()}</p>${bookTeaser()}`;
   const q=quests(),dd=M.dailyDone===dayStr();
@@ -5253,7 +5262,7 @@ function homeMeta(){
 $('home').addEventListener('click',e=>{
   if(e.target.closest('#hSet')){openSettings();return;}
   if(e.target.closest('#hAch')){openAch();return;}
-  if(e.target.closest('#hMute')){PREF.mute=!PREF.mute;savePref();volSync();homeMeta();return;}
+  if(e.target.closest('#hMute')){const s=(sndSt()+1)%3;PREF.mute=s===0;PREF.noMus=s===1;if(s&&!PREF.sfxVol)PREF.sfxVol=.85;if(s===2&&!PREF.musVol)PREF.musVol=.7;savePref();volSync();homeMeta();toast(SNDN[s]);return;}
   if(e.target.closest('[data-daily]')){openDaily();return;}
   const b=e.target.closest('[data-ch]');if(b)openChapter(+b.dataset.ch);
 });
@@ -5474,7 +5483,8 @@ function tbBossPage(i){const c=CH[i],o=OPPS[i],won=oppBeaten(i),reached=chReache
   <div class="tb-por">${oppSVG(i,'big')}</div>
   <h3>${o.n}</h3>${won?starsHTML(rec.s):''}
   <p class="tb-quote">«${quote}»</p>
-  <p class="tb-desc">${o.d} ${o.st}.</p>
+  <p class="tb-story">${CHSTORY[i]||''}</p>
+  <p class="tb-desc"><b>Как играет:</b> ${o.d} ${o.st}.</p>
   ${st.length?`<div class="tb-prog"><span style="width:${Math.round(dn/st.length*100)}%"></span></div><p class="tb-note">${dn===st.length?'Все задания главы выполнены':'Задания на дороге: '+dn+' из '+st.length}</p>`:''}
   <button type="button" class="btn primary tb-fight" data-tbfight="${i}"${ready||i===0||won?'':' disabled'}><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4l13 8-13 8z"/></svg>${won?'Сыграть ещё раз':ready||i===0?'Сразиться':'Сначала пройдите дорогу'}</button></div>`;}
 function tbLocPage(i){const reached=chReached(i),st=chSteps(i),won=oppBeaten(i),n=st.length,first=st.findIndex(s=>!s.done);
@@ -5582,11 +5592,24 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-tbst]');if
 function flipSync(){document.body.classList.toggle('noflip',!!(S.learn||S.puz||(!S.book&&!S.setup&&S.userColor!=='both')));}
 {const _r=render;render=function(){const x=_r.apply(this,arguments);flipSync();return x;};}
 
-/* menu button lives at the bottom of the right column on PC */
-{const mq=matchMedia('(min-width:1000px) and (min-aspect-ratio:5/4)'),mw=document.querySelector('.menu-wrap'),home=mw.parentNode,
-   dock=document.createElement('div');dock.className='menu-dock';document.querySelector('.app').appendChild(dock);
- const place=()=>{if(mq.matches){if(mw.parentNode!==dock)dock.appendChild(mw);}else if(mw.parentNode!==home)home.appendChild(mw);};
- place();mq.addEventListener('change',place);}
+/* exit button next to the game record; the menu opens downward inside the right column */
+{const mw=document.querySelector('.menu-wrap');
+ mw.insertAdjacentHTML('beforebegin','<button class="btn icon" id="actExit" type="button" aria-label="Выйти на главный экран" title="Выйти на главный экран" data-cap="Выйти"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4"/><path d="M15 16l4-4-4-4M19 12H9"/></svg></button>');
+ $('actExit').onclick=()=>$('homeBtn').click();}
+if(PREF.test){delete PREF.test;savePref();}
+
+/* chapter stories for the boss page */
+const CHSTORY=[
+ 'Над башнями замка ещё не рассеялся дым: на рассвете дракон Игнис пролетел над городом и унёс принцессу Алису. Королева Элинор созвала героев, но откликнулся только ты. Во дворе тебя ждёт оруженосец Тим — он покажет доску, научит ходить каждой фигурой и первым проверит тебя в настоящей партии.',
+ 'За городскими воротами начинается древний лес, где тропинки меняются каждую ночь. Здесь хозяйничает лучница Ива — она замечает чужака раньше, чем он её. Чтобы пройти, научись нападать: брать фигуры, знать им цену и объявлять шах.',
+ 'Тропа поднимается к перевалу, где в скале гудит кузница гнома Бродда. Он куёт доспехи для героев, но сначала проверяет их на прочность. Бродд научит защищаться от шаха и ставить мат, а его задачи закалят не хуже жара горна.',
+ 'У реки лежит деревня, захваченная шайкой атамана Крюка. Крюк обожает хитрые правила и ловит на них новичков: рокировку, взятие на проходе, превращение пешки. Узнай их раньше, чем он успеет тебя обмануть.',
+ 'На границе драконьих земель стоит застава сэра Гарета. Рыцарь пропускает дальше лишь тех, кто знает все правила и умеет правильно начать партию. Изучи первый дебют, закончи обучение и выходи на рыцарский турнир.',
+ 'Дорога упирается в солёный залив. В гавани скрипят мачты, а капитан Шторм высматривает, кого бы взять на борт. Он переправит тебя к драконьим берегам, если ты научишься видеть на два хода вперёд — задачи «мат в 2» помогут.',
+ 'На том берегу клубится туман Ночного болота. Огоньки сманивают путников с тропы, а чародейка Мирра видит ходы наперёд и расставляет ловушки. Изучи ловушки в справочнике — иначе сам в них попадёшь.',
+ 'Высоко в горах стоит Снежная башня архимага Орвина. Сто лет назад он сыграл с драконом вничью и с тех пор ждёт того, кто сможет победить. Орвин думает глубоко и наказывает за каждую неточность — тренируйся как следует.',
+ 'Чёрные врата охраняет рыцарь, давно перешедший на сторону дракона. Многие дошли до этих врат, но никто не вошёл. Здесь пригодится всё, чему ты научился: задачи «мат в 3», дебюты и холодная голова.',
+ 'За вратами — Драконья долина и пещера, полная золота. Игнис ждёт тебя на груде сокровищ, а рядом томится принцесса Алиса. Это последняя партия: победи дракона за шахматной доской и верни принцессу домой.'];
 
 /* metal 3D set retired */
 if(PREF.pset==='p_metal'){PREF.pset='p_staunton';savePref();applyLook();}
@@ -5628,13 +5651,6 @@ ACH.push(
  ['knight','Конь','Получите звание «Конь»',()=>rankOf(M.xp)>=1],
  ['bishop','Слон','Получите звание «Слон»',()=>rankOf(M.xp)>=2],
  ['queen','Ферзь','Получите звание «Ферзь»',()=>rankOf(M.xp)>=4]);
-/* ===== test mode: everything open (scenes, boards, piece sets, chapters, bosses) ===== */
-(function(){const w=f=>function(){return PREF.test?true:f.apply(this,arguments);};
-  const lo=lockOf;lockOf=function(t,k){return PREF.test?null:lo(t,k);};
-  chReached=w(chReached);chReady=w(chReady);oppOpen=w(oppOpen);
-  const fx=$('fxT');if(fx){const lb=document.createElement('label');lb.className='toggle test-t';lb.innerHTML='<input type="checkbox" id="testT"> Тестовый режим: всё открыто (фоны, доски, фигуры, главы)';
-    fx.closest('label').after(lb);const t=$('testT');t.checked=!!PREF.test;t.onchange=()=>{PREF.test=t.checked;savePref();applyLook();try{homeMeta();}catch(e){}try{if(!$('tbov').hidden)tbRender();}catch(e){}toast(t.checked?'Тестовый режим включён: всё открыто':'Тестовый режим выключен','unl',2200);};}
-})();
 try{const lv=+localStorage.getItem('chess-opp');setLevel(lv>=1&&lv<=OPPS.length&&oppOpen(lv-1)?lv:oppNext()+1);}catch(e){setLevel(1);}
 PREF.sound=PREF.sfxVol>0&&!PREF.mute;
 newGame();
