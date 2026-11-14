@@ -1601,6 +1601,49 @@ body.nomenu #actSet,body.nomenu:not(.m-puz) #actNew{display:inline-flex!importan
 @media (min-width:821px){.home .home-grid{grid-template-columns:repeat(5,minmax(0,1fr))!important}}
 @media (max-width:820px){.home .home-grid .hcard:last-child{grid-column:1/-1!important}}
 @media (min-width:1000px) and (min-aspect-ratio:5/4){.actions{gap:6px!important}.actions>.btn.icon,.actions .ctl-wrap>.btn.icon,.actions #menuBtn{width:46px!important;min-width:46px!important}}
+
+/* page-curl corners: same parchment as the page, darker underside */
+.tb-curl{filter:drop-shadow(-2px -2px 3px rgba(60,30,5,.45))}.tb-curl.p{filter:drop-shadow(2px -2px 3px rgba(60,30,5,.45))}
+.tb-curl::before{filter:none!important}
+.tb-curl.n::before{background:linear-gradient(135deg,rgba(255,250,232,.5) 0%,rgba(255,244,214,0) 40%,rgba(110,70,20,.28) 100%),var(--parch) right bottom/260px,#e9d4a8!important;clip-path:polygon(100% 0,100% 100%,0 100%);border-radius:0!important}
+.tb-curl.p::before{background:linear-gradient(225deg,rgba(255,250,232,.5) 0%,rgba(255,244,214,0) 40%,rgba(110,70,20,.28) 100%),var(--parch) left bottom/260px,#e9d4a8!important;clip-path:polygon(0 0,100% 100%,0 100%);border-radius:0!important}
+
+/* --- statistics --- */
+.hp-btn .stat-ic{width:30px;height:30px;display:block}
+.statcard{width:min(100%,640px)}
+.st-body{overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;gap:12px;padding-right:4px;scrollbar-width:thin;scrollbar-color:#b8862b transparent}
+.st-body h3{margin:4px 0 0;font:400 1.15rem/1.1 Kurale,Georgia,serif}
+.st-tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.st-tiles.sm{grid-template-columns:repeat(6,minmax(0,1fr))}
+.st-tile{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 4px;border-radius:12px;border:1.5px solid rgba(140,90,46,.3);background:rgba(140,90,46,.08);text-align:center;min-width:0}
+.st-tile b{font-size:1.45rem;line-height:1}.st-tiles.sm .st-tile b{font-size:1.1rem}
+.st-tile small{font-size:.74rem;font-weight:700;color:var(--muted)}
+.st-tile.w b{color:#3f8f3a}.st-tile.d b{color:#a8842e}.st-tile.l b{color:#c8433a}
+.st-line{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.86rem;color:var(--muted)}.st-line b{color:var(--ink)}
+.st-opps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.st-opp{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:12px;border:1.5px solid rgba(140,90,46,.22);background:rgba(140,90,46,.05);min-width:0}
+.st-opp svg.opp,.st-opp .opp{width:40px;height:40px;flex:none}
+.st-on{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}.st-on b{font-size:.88rem;line-height:1.1}.st-on small{font-size:.74rem;color:var(--muted);font-weight:700}
+.st-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;background:rgba(140,90,46,.15)}
+.st-bar i,.st-leg i{display:block;height:100%}.st-bar .w,.st-leg .w{background:#4fa04a}.st-bar .d,.st-leg .d{background:#d6a43a}.st-bar .l,.st-leg .l{background:#d0503f}
+.st-leg{margin:-4px 0 0;font-size:.74rem;color:var(--muted);display:flex;gap:6px;align-items:center}.st-leg i{width:10px;height:10px;border-radius:3px;margin-left:6px}
+.st-opp .stars{flex:none}
+.st-hist{display:flex;flex-direction:column;gap:4px}
+.st-h{display:grid;grid-template-columns:12px auto 1fr auto;gap:8px;align-items:center;padding:6px 10px;border-radius:10px;background:rgba(140,90,46,.06);font-size:.86rem}
+.st-h span:nth-child(3){min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st-h small{color:var(--muted);font-weight:700;font-size:.74rem}
+.st-dot{width:10px;height:10px;border-radius:50%}.st-h.w .st-dot{background:#4fa04a}.st-h.d .st-dot{background:#d6a43a}.st-h.l .st-dot{background:#d0503f}
+.st-empty{margin:0;color:var(--muted);font-size:.86rem}
+@media (max-width:560px){.st-tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.st-tiles.sm{grid-template-columns:repeat(3,minmax(0,1fr))}.st-opps{grid-template-columns:minmax(0,1fr)}.st-h{grid-template-columns:12px auto 1fr}.st-h small{grid-column:2/-1}}
+
+/* --- PC: the icon row sits at the bottom of the right column; popups open upward --- */
+@media (min-width:1000px) and (min-aspect-ratio:5/4){
+ .app,body.solo .app{grid-template-rows:auto auto auto auto 1fr auto!important}
+ .board-col>.actions{grid-row:6!important;align-self:end}
+ .board-col>#bkNav,.board-col>.bk-nav{grid-row:4!important}
+ .app>.panel{grid-row:5!important}
+ .actions .menu-pop{top:auto!important;bottom:calc(100% + 8px)!important;max-height:calc(100vh - 140px)!important}
+}
 </style>
 <style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style>
 </head>
@@ -5295,6 +5338,7 @@ function homeMeta(){
     <div class="hp-mid"><div class="hp-t"><small>Звание</small><b>${RANKS[r][0]}</b><em>${nx?`${M.xp} / ${nx[1]} опыта`:`${M.xp} опыта`}</em></div><div class="hc-bar"><i style="width:${pct}%"></i></div><small class="hp-nx">${nx?`До звания «${nx[0]}» — ${nx[1]-M.xp}`:'Высшее звание'}</small></div>
     <span class="hp-streak${st?'':' off'}" title="Дней подряд">${FIRE}<b>${st}</b><small>${plural(st,'день','дня','дней')}<br>подряд</small></span>
     <button type="button" class="hp-btn" id="hAch" aria-label="Достижения">${MEDAL(true)}<small>${achCount()}/${ACH.length}</small></button>
+    <button type="button" class="hp-btn" id="hStat" aria-label="Статистика" title="Статистика">${typeof STATIC!=='undefined'?STATIC:''}</button>
     <button type="button" class="hp-btn snd" id="hMute" aria-label="Звук: ${SNDN[sndSt()]}" title="${SNDN[sndSt()]}">${SPK(sndSt())}</button>`;
   const ci=chCur(),all=OPPS.every((_,i)=>oppBeaten(i)),cst=chSteps(ci),dn=cst.filter(x=>x.done).length;
   $('hPath').innerHTML=`<div class="hs-h"><b>Спасти принцессу</b><small>${all?'Все главы пройдены':'Глава '+(ci+1)+' из '+CH.length}</small></div><p class="hs-sub">${(()=>{const s=lnStore(),n=LESSONS.filter(l=>s[l.id]).length,d=n>=LESSONS.length;return `<i>${d?'Наука пройдена — осталось победить дракона':'Путь ученика: от первого хода до мата дракону'}</i><span class="hs-chip${d?' done':''}">${icImg('cap')}Уроки ${n}/${LESSONS.length}</span>`;})()}</p>${bookTeaser()}`;
@@ -5504,6 +5548,29 @@ $('home').addEventListener('click',e=>{if(e.target.closest('#hAv'))openFrames();
 })();
 /* painted icons on in-game hint buttons (the vector icon stays as a hidden fallback) */
 (function(){['hintBtn','lnHintM','pzHintM'].forEach(id=>{const b=$(id);if(!b)return;const sv=b.querySelector('svg');if(sv&&!b.querySelector('.btn-pic')){sv.classList.add('pic-old');sv.insertAdjacentHTML('afterend',icImg('bulb','btn-pic'));}});})();
+/* page-turn sound variants (synthesised, no files) */
+const PGS=(function(){
+  function nbuf(c,dur,grain){const len=Math.max(1,Math.floor(c.sampleRate*dur)),b=c.createBuffer(1,len,c.sampleRate),d=b.getChannelData(0);
+    let g=1;for(let i=0;i<len;i++){if(grain&&i%Math.floor(c.sampleRate/grain)===0)g=Math.random()<.35?1.6:.35+Math.random()*.5;d[i]=(Math.random()*2-1)*(grain?g:1);}return b;}
+  /* swept band of noise with a swell-then-fade envelope: the core "shhh" of paper moving through air */
+  function sweep(c,out,t,o){const s=c.createBufferSource();s.buffer=nbuf(c,o.dur+.05,o.grain);
+    const f=c.createBiquadFilter();f.type=o.type||'bandpass';f.Q.value=o.q||1;f.frequency.setValueAtTime(o.f1,t);f.frequency.exponentialRampToValueAtTime(o.f2,t+o.dur);
+    const g=c.createGain();g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(o.v,t+o.dur*(o.peak||.55));g.gain.exponentialRampToValueAtTime(.0001,t+o.dur);
+    let n=g;if(c.createStereoPanner&&o.pan!=null){const p=c.createStereoPanner();p.pan.setValueAtTime(-o.pan,t);p.pan.linearRampToValueAtTime(o.pan,t+o.dur);g.connect(p);n=p;}
+    s.connect(f);f.connect(g);n.connect(out);s.start(t);s.stop(t+o.dur+.05);}
+  function thump(c,out,t,f,v,dur){const o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.setValueAtTime(f,t);o.frequency.exponentialRampToValueAtTime(f*.55,t+dur);
+    g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v,t+.008);g.gain.exponentialRampToValueAtTime(.0001,t+dur);o.connect(g);g.connect(out);o.start(t);o.stop(t+dur+.02);}
+  function flick(c,out,t,f,v){sweep(c,out,t,{dur:.05,f1:f,f2:f*1.4,v,q:2,peak:.2});}
+  function chime(c,out,t,f,v){const o=c.createOscillator(),g=c.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(.0001,t);g.gain.exponentialRampToValueAtTime(v,t+.01);g.gain.exponentialRampToValueAtTime(.0001,t+.7);o.connect(g);g.connect(out);o.start(t);o.stop(t+.75);}
+  const V={
+    1:{n:'Лёгкая страница',d:'Тонкая бумага: мягкий шорох и щелчок в конце',f:(c,o,t)=>{sweep(c,o,t,{dur:.36,f1:1400,f2:4200,v:.5,q:.9,pan:.5});flick(c,o,t+.33,5200,.18);}},
+    2:{n:'Старый пергамент',d:'Сухой хрустящий лист с лёгким шлепком',f:(c,o,t)=>{sweep(c,o,t,{dur:.42,f1:1800,f2:3600,v:.55,q:1.2,grain:90,pan:.4});sweep(c,o,t+.05,{dur:.3,f1:3000,f2:6000,v:.18,q:2,grain:140});thump(c,o,t+.4,140,.22,.12);}},
+    3:{n:'Тяжёлый фолиант',d:'Плотная страница большой книги: долгий «вжух» и глухой хлопок',f:(c,o,t)=>{sweep(c,o,t,{dur:.62,f1:500,f2:2400,v:.6,q:.7,type:'bandpass',peak:.6,pan:.6});sweep(c,o,t+.1,{dur:.45,f1:2000,f2:3800,v:.16,q:1.4});thump(c,o,t+.58,95,.4,.2);flick(c,o,t+.58,1600,.2);}},
+    4:{n:'Быстрый шелест',d:'Короткий двойной шорох, не отвлекает',f:(c,o,t)=>{sweep(c,o,t,{dur:.16,f1:2400,f2:5200,v:.42,q:1.1,pan:.3});sweep(c,o,t+.12,{dur:.14,f1:3000,f2:6000,v:.3,q:1.3});}},
+    5:{n:'Волшебная страница',d:'Шорох страницы и тихий звон волшебства',f:(c,o,t)=>{sweep(c,o,t,{dur:.4,f1:1300,f2:3800,v:.45,q:.9,pan:.5});flick(c,o,t+.36,4800,.14);[1568,2093,2637,3136].forEach((f,k)=>chime(c,o,t+.3+k*.07,f,.05));}},
+    6:{n:'Пергамент + хлопок обложки',d:'Шорох листа и мягкое касание страницы о страницу',f:(c,o,t)=>{sweep(c,o,t,{dur:.34,f1:1000,f2:3000,v:.5,q:.8,grain:60,pan:.5});sweep(c,o,t+.26,{dur:.12,f1:600,f2:300,v:.3,q:.8,type:'lowpass',peak:.15});thump(c,o,t+.3,120,.18,.1);}}
+  };
+  return V;})();
 /* ===== "Спасти принцессу" as a storybook: the cover opens, pages turn.
    Spread 0: title page + map of the kingdom (contents). Spread i+1: chapter i —
    left page: the boss and the story, right page: the location with the lessons placed along the road. */
@@ -5603,7 +5670,7 @@ function bookTeaser(){const cur=chCur(),all=OPPS.every((_,i)=>oppBeaten(i)),st=c
   $('home').addEventListener('click',e=>{const t=e.target.closest('[data-tbopen]');if(t)openBook(+t.dataset.tbopen);});
 })();
 /* paper swish for page turns: two short filtered noise bursts */
-SOUND.page=(c,t)=>{noise(c,t,.32,1100,.55,.9);noise(c,t+.1,.24,2600,.4,1.4);noise(c,t+.26,.08,5200,.22,2);};
+SOUND.page=(c,t)=>{const g=c.createGain();g.gain.value=1.9;g.connect(typeof sfxOut==='function'?sfxOut(c):c.destination);PGS[1].f(c,g,t);};
 /* --- chapter look: each chapter brings its own scene, pieces and board (fantasy skin; the player's own choice is kept) --- */
 const CHLOOK=[{scene:'meadow',pset:'kingdom',theme:'castle'},{scene:'forest',pset:'fairy',theme:'forest'},{scene:'lake',pset:'stone',theme:'runic'},
  {scene:'sunset',pset:'p_staunton',theme:'tavern'},{scene:'meadow',pset:'kingdom',theme:'royal'},{scene:'harbor',pset:'p_marble',theme:'sea'},
@@ -5713,6 +5780,43 @@ ACH.push(
  ['knight','Конь','Получите звание «Конь»',()=>rankOf(M.xp)>=1],
  ['bishop','Слон','Получите звание «Слон»',()=>rankOf(M.xp)>=2],
  ['queen','Ферзь','Получите звание «Ферзь»',()=>rankOf(M.xp)>=4]);
+/* ===== game statistics ===== */
+if(!M.st||typeof M.st!=='object'){
+  const opp={};OPPS.forEach(o=>{const r=M.opp&&M.opp[o.id];if(r&&r.w)opp[o.id]={p:r.w,w:r.w,d:0,l:0};});
+  M.st={l:Math.max(0,(M.games||0)-(M.wins||0)),d:0,opp,col:{w:{p:0,w:0},b:{p:0,w:0}},moves:0,hist:[],two:0};mSave();}
+{const _mg=metaGame;metaGame=function(win,lose){
+  const two=S.userColor==='both'&&S.gTwo!==S.gameId&&S.ucis.length>0;
+  const r=_mg.apply(this,arguments);
+  if(two){S.gTwo=S.gameId;M.st.two++;mSave();}
+  if(r&&!r.custom&&r.o){const st=M.st,res=win?'w':lose?'l':'d',o=st.opp[r.o.id]||(st.opp[r.o.id]={p:0,w:0,d:0,l:0});
+    o.p++;if(res!=='w')o[res]++;else o.w++;if(res==='l')st.l++;if(res==='d')st.d++;
+    const c=S.userColor==='b'?'b':'w';st.col[c].p++;if(res==='w')st.col[c].w++;
+    const n=Math.ceil(S.ucis.length/2);st.moves+=n;
+    st.hist.unshift({i:r.i,r:res,n,t:Date.now(),s:res==='w'?r.stars:0});st.hist.length=Math.min(st.hist.length,12);mSave();}
+  return r;};}
+document.body.insertAdjacentHTML('beforeend',`<div class="newov" id="statov" hidden><div class="achcard statcard" role="dialog" aria-modal="true" aria-labelledby="statTitle"><div class="bk-top"><h2 id="statTitle">Статистика</h2><button class="btn small" id="statClose" type="button">Закрыть</button></div><div class="st-body" id="statBody"></div></div></div>`);
+var STATIC=`<svg class="stat-ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="27" width="26" height="2.600" rx="1.300" fill="#5a3a14"/><rect x="5" y="16" width="5.500" height="10" rx="1.500" fill="#e8b84a" stroke="#5a3a14" stroke-width="1.600"/><rect x="13.250" y="9" width="5.500" height="17" rx="1.500" fill="#f4d27a" stroke="#5a3a14" stroke-width="1.600"/><rect x="21.500" y="4" width="5.500" height="22" rx="1.500" fill="#c8322a" stroke="#5a3a14" stroke-width="1.600"/></svg>`;
+function pct(a,b){return b?Math.round(a/b*100):0;}
+function openStats(){
+  const st=M.st,g=M.games||0,w=M.wins||0,l=st.l,d=st.d,ls=lnStore(),ps=pzStore(),lv=k=>Object.keys(ps).filter(x=>ps[x]&&x.indexOf(k+'-')===0).length;
+  const tile=(n,t,c)=>`<div class="st-tile${c?' '+c:''}"><b>${n}</b><small>${t}</small></div>`;
+  const ago=t=>{const s=(Date.now()-t)/1000;return s<3600?Math.max(1,Math.round(s/60))+' мин назад':s<86400?Math.round(s/3600)+' ч назад':new Date(t).toLocaleDateString('ru-RU',{day:'numeric',month:'short'});};
+  const RN={w:'Победа',d:'Ничья',l:'Поражение'};
+  const opps=OPPS.map((o,i)=>{const s=st.opp[o.id]||{p:0,w:0,d:0,l:0},rc=oppRec(i);if(!oppOpen(i)&&!s.p)return '';
+    return `<div class="st-opp">${oppSVG(i,'sm')}<div class="st-on"><b>${o.n}</b><small>${s.p?`${s.p} ${plural(s.p,'партия','партии','партий')} · ${s.w} – ${s.d} – ${s.l}`:'ещё не играли'}</small><div class="st-bar"><i class="w" style="width:${pct(s.w,s.p)}%"></i><i class="d" style="width:${pct(s.d,s.p)}%"></i><i class="l" style="width:${pct(s.l,s.p)}%"></i></div></div>${starsHTML(rc.s)}</div>`;}).join('');
+  const hist=st.hist.length?st.hist.map(h=>`<div class="st-h ${h.r}"><span class="st-dot"></span><b>${RN[h.r]}</b><span>${OPPS[h.i]?OPPS[h.i].n:''}</span><small>${h.n} ${plural(h.n,'ход','хода','ходов')} · ${ago(h.t)}</small></div>`).join(''):'<p class="st-empty">Сыграйте партию — она появится здесь.</p>';
+  $('statBody').innerHTML=`
+   <div class="st-tiles">${tile(g,plural(g,'партия','партии','партий'))}${tile(w,plural(w,'победа','победы','побед'),'w')}${tile(d,plural(d,'ничья','ничьи','ничьих'),'d')}${tile(l,plural(l,'поражение','поражения','поражений'),'l')}${tile(pct(w,g)+'%','побед')}</div>
+   <div class="st-line"><span>Белыми: <b>${st.col.w.w} из ${st.col.w.p}</b></span><span>Чёрными: <b>${st.col.b.w} из ${st.col.b.p}</b></span><span>Ходов сделано: <b>${st.moves}</b></span><span>Игр вдвоём: <b>${st.two}</b></span><span>Без подсказок: <b>${M.cleanWin||0}</b></span><span>На три звезды: <b>${M.star3||0}</b></span></div>
+   <h3>Соперники</h3><div class="st-opps">${opps}</div><p class="st-leg"><i class="w"></i>победы <i class="d"></i>ничьи <i class="l"></i>поражения</p>
+   <h3>Последние партии</h3><div class="st-hist">${hist}</div>
+   <h3>Учёба</h3><div class="st-tiles sm">${tile(LESSONS.filter(x=>ls[x.id]).length+'/'+LESSONS.length,'уроков')}${tile(lv('easy')+'/'+PUZ.easy.length,'мат в 1')}${tile(lv('mid')+'/'+PUZ.mid.length,'мат в 2')}${tile(lv('hard')+'/'+PUZ.hard.length,'мат в 3')}${tile(bkLearned().length,'дебютов')}${tile(M.dailyN||0,'задач дня')}</div>
+   <div class="st-line"><span>Опыт: <b>${M.xp}</b> · звание «${RANKS[rankOf(M.xp)][0]}»</span><span>Лучшая серия: <b>${M.best||0} ${plural(M.best||0,'день','дня','дней')}</b></span><span>Заданий дня выполнено: <b>${M.qDone||0}</b></span><span>Достижений: <b>${achCount()} из ${ACH.length}</b></span></div>`;
+  $('statov').hidden=false;$('statClose').focus({preventScroll:true});}
+$('statClose').onclick=()=>{$('statov').hidden=true;};
+$('statov').addEventListener('click',e=>{if(e.target===$('statov'))$('statov').hidden=true;});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('statov').hidden){$('statov').hidden=true;e.stopPropagation();}},true);
+document.addEventListener('click',e=>{if(e.target.closest('#hStat'))openStats();});
 try{const lv=+localStorage.getItem('chess-opp');setLevel(lv>=1&&lv<=OPPS.length&&oppOpen(lv-1)?lv:oppNext()+1);}catch(e){setLevel(1);}
 PREF.sound=PREF.sfxVol>0&&!PREF.mute;
 newGame();
