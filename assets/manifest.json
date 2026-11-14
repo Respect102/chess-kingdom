@@ -152,7 +152,11 @@
    "chest": 11,
    "flame": 11,
    "lock": 11,
-   "bulb": 11
+   "bulb": 11,
+   "setup": 22
+  },
+  "prompts": {
+   "setup": "an open wooden chess box with a velvet red lining and carved ivory and ebony chess pieces arranged inside, golden brass corners"
   }
  },
  "rewards": {
