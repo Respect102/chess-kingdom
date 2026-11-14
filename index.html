@@ -1644,6 +1644,8 @@ body.nomenu #actSet,body.nomenu:not(.m-puz) #actNew{display:inline-flex!importan
  .app>.panel{grid-row:5!important}
  .actions .menu-pop{top:auto!important;bottom:calc(100% + 8px)!important;max-height:calc(100vh - 140px)!important}
 }
+.tb-curl.n.cc::before{background:linear-gradient(135deg,rgba(255,255,255,.38) 0%,rgba(255,255,255,0) 45%,rgba(0,0,0,.32) 100%),var(--cc)!important}
+.tb-curl.cc::after{border-color:rgba(255,248,230,.9)}
 </style>
 <style>html{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style>
 </head>
@@ -5607,12 +5609,16 @@ function tbLocPage(i){const reached=chReached(i),st=chSteps(i),won=oppBeaten(i),
   return `<div class="tb-loc${reached?'':' locked'}" style="background-image:url(${ART.loc[i+1]})"><svg class="tb-trail" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="${d}" class="tt-a"/><path d="${d}" class="tt-b"/></svg><span class="tb-loc-t">${CH[i].t}</span>${nodes}
   <button type="button" class="tb-st tb-bossnode${won?' done':''}${reached&&first<0&&!won?' cur':''}" data-tbfight="${i}" style="left:${(bx[0]*100).toFixed(1)}%;top:${(bx[1]*100).toFixed(1)}%"${reached?'':' disabled'} aria-label="Босс: ${OPPS[i].n}"><span class="tb-med big">${oppSVG(i)}${won?'<i class="tb-ok">✓</i>':''}</span><span class="tb-lb b">Босс</span></button></div>`;}
 function tbPage(s,side){return s===0?(side?tbMapPage():tbTitlePage()):(side?tbLocPage(s-1):tbBossPage(s-1));}
+const LOCCOL={"1": "#86a159", "2": "#26432f", "3": "#726f6b", "4": "#d7a466", "5": "#80955b", "6": "#9ea35c", "7": "#2c2b40", "8": "#e6e8ec", "9": "#382d2a", "10": "#3e231b"};
+function tbGray(h){const n=parseInt(h.slice(1),16),r=n>>16,g=n>>8&255,b=n&255,l=.3*r+.59*g+.11*b,m=x=>Math.round((l*.85+x*.15)*.8);return `rgb(${m(r)},${m(g)},${m(b)})`;}
 function tbRender(){const L=$('tbL'),R=$('tbR');
   if(tbMobile()){L.innerHTML=tbPage(TB.s,TB.side);R.innerHTML='';}else{L.innerHTML=tbPage(TB.s,0);R.innerHTML=tbPage(TB.s,1);}
   const mx=tbMax(),pos=tbMobile()?TB.s*2+TB.side:TB.s*2,last=tbMobile()?mx*2-1:(mx-1)*2;
   $('tbPrev').disabled=pos<=0;$('tbNext').disabled=pos>=last;
   const cp=`<button type="button" class="tb-curl p" data-tbturn="-1" aria-label="Предыдущая страница"></button>`,cn=`<button type="button" class="tb-curl n" data-tbturn="1" aria-label="Следующая страница"></button>`;
   if(tbMobile()){L.insertAdjacentHTML('beforeend',(pos>0?cp:'')+(pos<last?cn:''));}else{if(pos>0)L.insertAdjacentHTML('beforeend',cp);if(pos<last)R.insertAdjacentHTML('beforeend',cn);}
+  {const cc=k=>{const i=TB.s-1;return '--cc:'+(chReached(i)?LOCCOL[i+1]:tbGray(LOCCOL[i+1]));};const lp=tbMobile()?TB.side===1:true;
+   if(TB.s>0){const R2=tbMobile()?L:R,n=R2.querySelector('.tb-curl.n');if(n&&lp){n.classList.add('cc');n.setAttribute('style',cc());}}}
   $('tbFolio').textContent=TB.s?`Глава ${TB.s} · ${CH[TB.s-1].t}`:'Оглавление';
   tbStories();}
 function tbStories(){if(!TB.s||TB.busy)return;const i=TB.s-1;if(!chReached(i))return;const seen=M.camp.seen,c=CH[i];
